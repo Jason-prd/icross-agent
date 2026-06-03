@@ -160,6 +160,7 @@ function CostCalculatorTab({ currentShop }: { currentShop: string }) {
   const hasResult = calcResult !== null
 
   return (
+    <>
     <Row gutter={24}>
       {/* Form column */}
       <Col xs={24} lg={12}>
@@ -432,6 +433,7 @@ function CostCalculatorTab({ currentShop }: { currentShop: string }) {
       </Col>
     </Row>
       <Modal title="AI 竞争定价分析" open={showAiPricing} onCancel={()=>setShowAiPricing(false)} footer={null} width={500}>{aiPricingResult&&<div><Tag color={aiPricingResult.current_competitiveness==='high'?'green':aiPricingResult.current_competitiveness==='medium'?'orange':'red'}>{aiPricingResult.current_competitiveness}</Tag><p style={{marginTop:8}}>最优价: {aiPricingResult.suggested_price_range?.optimal} RUB (范围: {aiPricingResult.suggested_price_range?.min}-{aiPricingResult.suggested_price_range?.max})</p>{aiPricingResult.price_adjustment_tips?.length>0&&<ul>{aiPricingResult.price_adjustment_tips.map((t:string,i:number)=><li key={i}>{t}</li>)}</ul>}</div>}</Modal>
+    </>
   )
 }
 
@@ -712,6 +714,7 @@ function PricingRulesTab({ currentShop }: { currentShop: string }) {
   ]
 
   return (
+    <>
     <Space direction="vertical" style={{ width: '100%' }} size={16}>
       {/* ── Scheduler Status Card ── */}
       <Card size="small">
@@ -923,6 +926,7 @@ function PricingRulesTab({ currentShop }: { currentShop: string }) {
       />
     </Space>
       <Modal title="AI 竞争定价分析" open={showAiPricing} onCancel={()=>setShowAiPricing(false)} footer={null} width={500}>{aiPricingResult&&<div><Tag color={aiPricingResult.current_competitiveness==='high'?'green':aiPricingResult.current_competitiveness==='medium'?'orange':'red'}>{aiPricingResult.current_competitiveness}</Tag><p style={{marginTop:8}}>最优价: {aiPricingResult.suggested_price_range?.optimal} RUB (范围: {aiPricingResult.suggested_price_range?.min}-{aiPricingResult.suggested_price_range?.max})</p>{aiPricingResult.price_adjustment_tips?.length>0&&<ul>{aiPricingResult.price_adjustment_tips.map((t:string,i:number)=><li key={i}>{t}</li>)}</ul>}</div>}</Modal>
+    </>
   )
 }
 
@@ -934,6 +938,7 @@ export default function Pricing() {
   const { currentShop } = useOutletContext<{ currentShop: string }>()
 
   return (
+    <>
     <div>
       <PageHeader title="定价工具"
         actions={<Space><Input placeholder="产品ID" value={aiProductId} onChange={(e)=>setAiProductId(e.target.value)} style={{width:120}}/><Tooltip title="AI 竞争定价分析"><Button size="small" icon={<RobotOutlined />} onClick={() => aiProductId && aiPricingMutation.mutate(aiProductId)} loading={aiPricingMutation.isPending}>竞争分析</Button></Tooltip></Space>} subtitle="成本计算与定价规则管理" />
@@ -953,5 +958,6 @@ export default function Pricing() {
       />
     </div>
       <Modal title="AI 竞争定价分析" open={showAiPricing} onCancel={()=>setShowAiPricing(false)} footer={null} width={500}>{aiPricingResult&&<div><Tag color={aiPricingResult.current_competitiveness==='high'?'green':aiPricingResult.current_competitiveness==='medium'?'orange':'red'}>{aiPricingResult.current_competitiveness}</Tag><p style={{marginTop:8}}>最优价: {aiPricingResult.suggested_price_range?.optimal} RUB (范围: {aiPricingResult.suggested_price_range?.min}-{aiPricingResult.suggested_price_range?.max})</p>{aiPricingResult.price_adjustment_tips?.length>0&&<ul>{aiPricingResult.price_adjustment_tips.map((t:string,i:number)=><li key={i}>{t}</li>)}</ul>}</div>}</Modal>
+    </>
   )
 }

@@ -259,7 +259,7 @@ function ProfitTab({ currentShop }: { currentShop: string }) {
       <Modal title="AI 费用分类" open={showAiTag} onCancel={() => setShowAiTag(false)} footer={null} width={500}>
         {aiTagResult && <div>{Object.entries(aiTagResult.categories||{}).map(([k,v]:[string,any])=><p key={k}><Tag>{k}</Tag> {v.count}笔 / {v.total?.toFixed(0)} RUB</p>)}</div>}
       </Modal>
-    </div>)
+    </div>
   )
 }
 
@@ -298,6 +298,6 @@ export default function Finance() {
       <Modal title="AI 费用分类" open={showAiTag} onCancel={() => setShowAiTag(false)} footer={null} width={500}>
         {aiTagResult && <div>{Object.entries(aiTagResult.categories||{}).map(([k,v]:[string,any])=><p key={k}><Tag>{k}</Tag> {v.count}笔 / {v.total?.toFixed(0)} RUB</p>)}</div>}
       </Modal>
-    </div>)
+    </div>
   )
 }

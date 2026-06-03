@@ -20,7 +20,7 @@ done
 sleep 3
 
 echo "Starting backend on port 8000..."
-python3 -m uvicorn icross.api.main:app --host 0.0.0.0 --port 8000 &
+PYTHONPATH="src${PYTHONPATH:+:$PYTHONPATH}" .venv/Scripts/python -m uvicorn icross.api.main:app --host 0.0.0.0 --port 8000 &
 BACKEND_PID=$!
 sleep 5
 

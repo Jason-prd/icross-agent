@@ -95,24 +95,6 @@ export default function Drafts() {
     onError: (e: any) => message.error(e.response?.data?.detail || '操作失败'),
   })
 
-  const aiQualityMutation = useMutation({
-    mutationFn: async (draftId: string) => {
-      const { data } = await axios.post(`/api/drafts/${draftId}/ai/quality-check`, null, { params: { shop_id: currentShop } })
-      return data
-    },
-    onSuccess: (data: any) => { setAiCheckResult(data); setShowAiCheck(true) },
-    onError: (e: any) => message.error(e.response?.data?.detail || 'AI 检查失败'),
-  })
-
-  const aiCorrectMutation = useMutation({
-    mutationFn: async (draftId: string) => {
-      const { data } = await axios.post(`/api/drafts/${draftId}/ai/correct`, null, { params: { shop_id: currentShop } })
-      return data
-    },
-    onSuccess: (data: any) => { setAiCorrectResult(data); setShowAiCorrect(true) },
-    onError: (e: any) => message.error(e.response?.data?.detail || 'AI 修正失败'),
-  })
-
   const drafts: Draft[] = data?.drafts || data?.items || []
   const total = data?.total || data?.total_count || 0
 

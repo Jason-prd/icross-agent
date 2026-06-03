@@ -71,6 +71,7 @@ function CampaignsTab({ currentShop }: { currentShop: string }) {
   const total = data?.total || 0
 
   return (
+    <>
     <DataTable
       columns={[
         { key: 'name', title: '活动名称', dataIndex: 'name', width: 200 },
@@ -115,6 +116,7 @@ function CampaignsTab({ currentShop }: { currentShop: string }) {
           </div>
         )}
       </Modal>
+    </>
   )
 }
 

@@ -46,7 +46,7 @@ async def generate_listing_api(req: GenerateListingRequest):
     if custom_prompt:
         kwargs["custom_prompt"] = custom_prompt
 
-    result_str = generate_listing(**kwargs)
+    result_str = generate_listing.func(**kwargs)
 
     import json
     try:
