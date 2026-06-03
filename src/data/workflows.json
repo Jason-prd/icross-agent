@@ -1,0 +1,660 @@
+[
+  {
+    "id": "9d2e7f28",
+    "name": "自动化: test product",
+    "shop_id": "test_shop",
+    "steps": [
+      {
+        "step_type": "search_product",
+        "name": "搜索产品: test product",
+        "params": {
+          "keyword": "test product",
+          "page_size": 5
+        },
+        "status": "running",
+        "result": null,
+        "started_at": "2026-05-05T23:12:49.063186",
+        "task_id": "c89b9925"
+      },
+      {
+        "step_type": "generate_listing",
+        "name": "生成俄语Listing",
+        "params": {
+          "product_name_cn": "test product",
+          "product_description_cn": "",
+          "category": ""
+        },
+        "status": "pending",
+        "result": null
+      },
+      {
+        "step_type": "calculate_price",
+        "name": "计算定价",
+        "params": {
+          "purchase_price_cny": 50.0,
+          "weight_kg": 0.5,
+          "category_name": "",
+          "target_margin": 20.0
+        },
+        "status": "pending",
+        "result": null
+      },
+      {
+        "step_type": "create_draft",
+        "name": "创建发布草稿",
+        "params": {
+          "shop_id": "test_shop"
+        },
+        "status": "pending",
+        "result": null
+      }
+    ],
+    "status": "running",
+    "current_step": 0,
+    "product_data": {
+      "product_name_cn": "test product",
+      "product_description_cn": "",
+      "purchase_price_cny": 50.0,
+      "weight_kg": 0.5,
+      "category": ""
+    },
+    "created_at": "2026-05-05T23:12:49.062315",
+    "updated_at": "2026-05-05T23:12:49.064063"
+  },
+  {
+    "id": "8cc2a0d1",
+    "name": "自动化: wireless earbuds",
+    "shop_id": "test_shop",
+    "steps": [
+      {
+        "step_type": "search_product",
+        "name": "搜索产品: wireless earbuds",
+        "params": {
+          "keyword": "wireless earbuds",
+          "page_size": 5
+        },
+        "status": "running",
+        "result": null,
+        "started_at": "2026-05-05T23:13:37.054483",
+        "task_id": "bd304c8b"
+      },
+      {
+        "step_type": "generate_listing",
+        "name": "生成俄语Listing",
+        "params": {
+          "product_name_cn": "wireless earbuds",
+          "product_description_cn": "",
+          "category": ""
+        },
+        "status": "pending",
+        "result": null
+      },
+      {
+        "step_type": "calculate_price",
+        "name": "计算定价",
+        "params": {
+          "purchase_price_cny": 45.0,
+          "weight_kg": 0.3,
+          "category_name": "",
+          "target_margin": 25.0
+        },
+        "status": "pending",
+        "result": null
+      },
+      {
+        "step_type": "create_draft",
+        "name": "创建发布草稿",
+        "params": {
+          "shop_id": "test_shop"
+        },
+        "status": "pending",
+        "result": null
+      }
+    ],
+    "status": "running",
+    "current_step": 0,
+    "product_data": {
+      "product_name_cn": "wireless earbuds",
+      "product_description_cn": "",
+      "purchase_price_cny": 45.0,
+      "weight_kg": 0.3,
+      "category": ""
+    },
+    "created_at": "2026-05-05T23:13:37.052916",
+    "updated_at": "2026-05-05T23:13:37.055996"
+  },
+  {
+    "id": "a3b570c6",
+    "name": "自动化: wireless earbuds",
+    "shop_id": "test_shop",
+    "steps": [
+      {
+        "step_type": "search_product",
+        "name": "搜索产品: wireless earbuds",
+        "params": {
+          "keyword": "wireless earbuds",
+          "page_size": 5
+        },
+        "status": "running",
+        "result": null,
+        "started_at": "2026-05-05T23:14:13.279973",
+        "task_id": "6ce959a8"
+      },
+      {
+        "step_type": "generate_listing",
+        "name": "生成俄语Listing",
+        "params": {
+          "product_name_cn": "wireless earbuds",
+          "product_description_cn": "",
+          "category": ""
+        },
+        "status": "pending",
+        "result": null
+      },
+      {
+        "step_type": "calculate_price",
+        "name": "计算定价",
+        "params": {
+          "purchase_price_cny": 45.0,
+          "weight_kg": 0.3,
+          "category_name": "",
+          "target_margin": 25.0
+        },
+        "status": "pending",
+        "result": null
+      },
+      {
+        "step_type": "create_draft",
+        "name": "创建发布草稿",
+        "params": {
+          "shop_id": "test_shop"
+        },
+        "status": "pending",
+        "result": null
+      }
+    ],
+    "status": "running",
+    "current_step": 0,
+    "product_data": {
+      "product_name_cn": "wireless earbuds",
+      "product_description_cn": "",
+      "purchase_price_cny": 45.0,
+      "weight_kg": 0.3,
+      "category": ""
+    },
+    "created_at": "2026-05-05T23:14:13.278461",
+    "updated_at": "2026-05-05T23:14:13.281164"
+  },
+  {
+    "id": "3196de03",
+    "name": "自动化: wireless earbuds",
+    "shop_id": "test_shop",
+    "steps": [
+      {
+        "step_type": "search_product",
+        "name": "搜索产品: wireless earbuds",
+        "params": {
+          "keyword": "wireless earbuds",
+          "page_size": 5
+        },
+        "status": "running",
+        "result": null,
+        "started_at": "2026-05-05T23:17:36.841572",
+        "task_id": "b45cc7e8"
+      },
+      {
+        "step_type": "generate_listing",
+        "name": "生成俄语Listing",
+        "params": {
+          "product_name_cn": "wireless earbuds",
+          "product_description_cn": "",
+          "category": ""
+        },
+        "status": "pending",
+        "result": null
+      },
+      {
+        "step_type": "calculate_price",
+        "name": "计算定价",
+        "params": {
+          "purchase_price_cny": 45.0,
+          "weight_kg": 0.3,
+          "category_name": "",
+          "target_margin": 25.0
+        },
+        "status": "pending",
+        "result": null
+      },
+      {
+        "step_type": "create_draft",
+        "name": "创建发布草稿",
+        "params": {
+          "shop_id": "test_shop"
+        },
+        "status": "pending",
+        "result": null
+      }
+    ],
+    "status": "running",
+    "current_step": 0,
+    "product_data": {
+      "product_name_cn": "wireless earbuds",
+      "product_description_cn": "",
+      "purchase_price_cny": 45.0,
+      "weight_kg": 0.3,
+      "category": ""
+    },
+    "created_at": "2026-05-05T23:17:36.840328",
+    "updated_at": "2026-05-05T23:17:36.842713"
+  },
+  {
+    "id": "2397f26c",
+    "name": "自动化: wireless earbuds",
+    "shop_id": "test_shop",
+    "steps": [
+      {
+        "step_type": "search_product",
+        "name": "搜索产品: wireless earbuds",
+        "params": {
+          "keyword": "wireless earbuds",
+          "page_size": 5
+        },
+        "status": "running",
+        "result": null,
+        "started_at": "2026-05-05T23:19:07.876358",
+        "task_id": "702d5293"
+      },
+      {
+        "step_type": "generate_listing",
+        "name": "生成俄语Listing",
+        "params": {
+          "product_name_cn": "wireless earbuds",
+          "product_description_cn": "",
+          "category": ""
+        },
+        "status": "pending",
+        "result": null
+      },
+      {
+        "step_type": "calculate_price",
+        "name": "计算定价",
+        "params": {
+          "purchase_price_cny": 45.0,
+          "weight_kg": 0.3,
+          "category_name": "",
+          "target_margin": 25.0
+        },
+        "status": "pending",
+        "result": null
+      },
+      {
+        "step_type": "create_draft",
+        "name": "创建发布草稿",
+        "params": {
+          "shop_id": "test_shop"
+        },
+        "status": "pending",
+        "result": null
+      }
+    ],
+    "status": "running",
+    "current_step": 0,
+    "product_data": {
+      "product_name_cn": "wireless earbuds",
+      "product_description_cn": "",
+      "purchase_price_cny": 45.0,
+      "weight_kg": 0.3,
+      "category": ""
+    },
+    "created_at": "2026-05-05T23:19:07.874937",
+    "updated_at": "2026-05-05T23:19:07.877986"
+  },
+  {
+    "id": "a0e2dfae",
+    "name": "Test pricing",
+    "shop_id": "test",
+    "steps": [
+      {
+        "step_type": "calculate_price",
+        "name": "计算定价",
+        "params": {
+          "purchase_price_cny": 50,
+          "weight_kg": 0.5,
+          "category_name": "电子产品",
+          "target_margin": 25
+        },
+        "status": "completed",
+        "result": {
+          "purchase_price_rub": 625.0,
+          "logistics_cost_rub": 27.5,
+          "commission_rub": 126.19,
+          "commission_rate": 11.0,
+          "customs_duty_rub": 0.0,
+          "return_reserve_rub": 22.94,
+          "packaging_cost_rub": 25.0,
+          "other_cost_rub": 37.5,
+          "total_cost_rub": 864.14,
+          "profit_rub": 283.08,
+          "profit_margin_pct": 24.68,
+          "recommended_price_rub": 1147.22,
+          "price_tier": "basic"
+        },
+        "started_at": "2026-05-05T23:39:08.801953",
+        "task_id": "fd71dfeb",
+        "completed_at": "2026-05-05T23:40:02.654330"
+      }
+    ],
+    "status": "completed",
+    "current_step": 1,
+    "product_data": {
+      "product_name_cn": "test",
+      "recommended_price": 1147.22,
+      "profit_margin": 24.68
+    },
+    "created_at": "2026-05-05T23:39:06.756658",
+    "updated_at": "2026-05-05T23:40:02.654341"
+  },
+  {
+    "id": "d26d2e5f",
+    "name": "自动化: 无线蓝牙耳机",
+    "shop_id": "test_shop",
+    "steps": [
+      {
+        "step_type": "search_product",
+        "name": "搜索产品: 无线蓝牙耳机",
+        "params": {
+          "keyword": "无线蓝牙耳机",
+          "page_size": 5
+        },
+        "status": "running",
+        "result": null,
+        "started_at": "2026-05-06T08:45:24.787921",
+        "task_id": "f3e4241f"
+      },
+      {
+        "step_type": "generate_listing",
+        "name": "生成俄语Listing",
+        "params": {
+          "product_name_cn": "无线蓝牙耳机",
+          "product_description_cn": "高品质蓝牙5.3耳机，降噪功能",
+          "category": "电子产品"
+        },
+        "status": "pending",
+        "result": null
+      },
+      {
+        "step_type": "calculate_price",
+        "name": "计算定价",
+        "params": {
+          "purchase_price_cny": 45.0,
+          "weight_kg": 0.3,
+          "category_name": "电子产品",
+          "target_margin": 25.0
+        },
+        "status": "pending",
+        "result": null
+      },
+      {
+        "step_type": "create_draft",
+        "name": "创建发布草稿",
+        "params": {
+          "shop_id": "test_shop"
+        },
+        "status": "pending",
+        "result": null
+      }
+    ],
+    "status": "running",
+    "current_step": 0,
+    "product_data": {
+      "product_name_cn": "无线蓝牙耳机",
+      "product_description_cn": "高品质蓝牙5.3耳机，降噪功能",
+      "purchase_price_cny": 45.0,
+      "weight_kg": 0.3,
+      "category": "电子产品"
+    },
+    "created_at": "2026-05-06T08:45:24.785626",
+    "updated_at": "2026-05-06T08:45:24.790482"
+  },
+  {
+    "id": "ea137100",
+    "name": "自动化: 无线蓝牙耳机",
+    "shop_id": "test_shop",
+    "steps": [
+      {
+        "step_type": "search_product",
+        "name": "搜索产品: 无线蓝牙耳机",
+        "params": {
+          "keyword": "无线蓝牙耳机",
+          "page_size": 5
+        },
+        "status": "running",
+        "result": null,
+        "started_at": "2026-05-06T08:48:56.040154",
+        "task_id": "88aab63e"
+      },
+      {
+        "step_type": "generate_listing",
+        "name": "生成俄语Listing",
+        "params": {
+          "product_name_cn": "无线蓝牙耳机",
+          "product_description_cn": "高品质蓝牙5.3耳机",
+          "category": "Электроника"
+        },
+        "status": "pending",
+        "result": null
+      },
+      {
+        "step_type": "calculate_price",
+        "name": "计算定价",
+        "params": {
+          "purchase_price_cny": 45.0,
+          "weight_kg": 0.3,
+          "category_name": "Электроника",
+          "target_margin": 25.0
+        },
+        "status": "pending",
+        "result": null
+      },
+      {
+        "step_type": "create_draft",
+        "name": "创建发布草稿",
+        "params": {
+          "shop_id": "test_shop"
+        },
+        "status": "pending",
+        "result": null
+      }
+    ],
+    "status": "running",
+    "current_step": 0,
+    "product_data": {
+      "product_name_cn": "无线蓝牙耳机",
+      "product_description_cn": "高品质蓝牙5.3耳机",
+      "purchase_price_cny": 45.0,
+      "weight_kg": 0.3,
+      "category": "Электроника"
+    },
+    "created_at": "2026-05-06T08:48:56.038441",
+    "updated_at": "2026-05-06T08:48:56.041802"
+  },
+  {
+    "id": "b10022ec",
+    "name": "测试定价→草稿",
+    "shop_id": "test_shop",
+    "steps": [
+      {
+        "step_type": "calculate_price",
+        "name": "计算定价",
+        "params": {
+          "purchase_price_cny": 50,
+          "weight_kg": 0.5,
+          "category_name": "Электроника",
+          "target_margin": 25
+        },
+        "status": "completed",
+        "result": {
+          "purchase_price_rub": 625.0,
+          "logistics_cost_rub": 27.5,
+          "commission_rub": 126.19,
+          "commission_rate": 11.0,
+          "customs_duty_rub": 0.0,
+          "return_reserve_rub": 22.94,
+          "packaging_cost_rub": 25.0,
+          "other_cost_rub": 37.5,
+          "total_cost_rub": 864.14,
+          "profit_rub": 283.08,
+          "profit_margin_pct": 24.68,
+          "recommended_price_rub": 1147.22,
+          "price_tier": "basic"
+        },
+        "started_at": "2026-05-06T09:07:45.333988",
+        "task_id": "52af2ef3",
+        "completed_at": "2026-05-06T09:07:56.483318"
+      },
+      {
+        "step_type": "create_draft",
+        "name": "创建草稿",
+        "params": {
+          "shop_id": "test_shop",
+          "title": "",
+          "description": "",
+          "price": 0
+        },
+        "status": "running",
+        "result": null,
+        "started_at": "2026-05-06T09:07:58.522477",
+        "task_id": "935a604d"
+      }
+    ],
+    "status": "running",
+    "current_step": 1,
+    "product_data": {
+      "product_name_cn": "test",
+      "recommended_price": 1147.22,
+      "profit_margin": 24.68
+    },
+    "created_at": "2026-05-06T09:07:43.300082",
+    "updated_at": "2026-05-06T09:07:58.524562"
+  },
+  {
+    "id": "dd84d952",
+    "name": "Test",
+    "shop_id": "test_shop",
+    "steps": [
+      {
+        "step_type": "calculate_price",
+        "name": "计算定价",
+        "params": {
+          "purchase_price_cny": 50,
+          "weight_kg": 0.5,
+          "category_name": "Электроника",
+          "target_margin": 25
+        },
+        "status": "completed",
+        "result": {
+          "purchase_price_rub": 625.0,
+          "logistics_cost_rub": 27.5,
+          "commission_rub": 126.19,
+          "commission_rate": 11.0,
+          "customs_duty_rub": 0.0,
+          "return_reserve_rub": 22.94,
+          "packaging_cost_rub": 25.0,
+          "other_cost_rub": 37.5,
+          "total_cost_rub": 864.14,
+          "profit_rub": 283.08,
+          "profit_margin_pct": 24.68,
+          "recommended_price_rub": 1147.22,
+          "price_tier": "basic"
+        },
+        "started_at": "2026-05-06T09:10:11.302446",
+        "task_id": "5a59d64d",
+        "completed_at": "2026-05-06T09:10:20.418942"
+      },
+      {
+        "step_type": "create_draft",
+        "name": "创建草稿",
+        "params": {
+          "shop_id": "test_shop",
+          "title": "",
+          "description": "",
+          "price": 0
+        },
+        "status": "running",
+        "result": null,
+        "started_at": "2026-05-06T09:10:22.462958",
+        "task_id": "996a4fc0"
+      }
+    ],
+    "status": "running",
+    "current_step": 1,
+    "product_data": {
+      "recommended_price": 1147.22,
+      "profit_margin": 24.68
+    },
+    "created_at": "2026-05-06T09:10:09.250415",
+    "updated_at": "2026-05-06T09:10:22.465145"
+  },
+  {
+    "id": "8eac1222",
+    "name": "Full Test",
+    "shop_id": "shop1",
+    "steps": [
+      {
+        "step_type": "calculate_price",
+        "name": "Step 1",
+        "params": {
+          "purchase_price_cny": 50,
+          "weight_kg": 0.5,
+          "category_name": "Электроника",
+          "target_margin": 25
+        },
+        "status": "completed",
+        "result": {
+          "purchase_price_rub": 625.0,
+          "logistics_cost_rub": 27.5,
+          "commission_rub": 126.19,
+          "commission_rate": 11.0,
+          "customs_duty_rub": 0.0,
+          "return_reserve_rub": 22.94,
+          "packaging_cost_rub": 25.0,
+          "other_cost_rub": 37.5,
+          "total_cost_rub": 864.14,
+          "profit_rub": 283.08,
+          "profit_margin_pct": 24.68,
+          "recommended_price_rub": 1147.22,
+          "price_tier": "basic"
+        },
+        "started_at": "2026-05-06T09:13:07.711059",
+        "task_id": "33928aa5",
+        "completed_at": "2026-05-06T09:13:12.760311"
+      },
+      {
+        "step_type": "create_draft",
+        "name": "Step 2",
+        "params": {
+          "shop_id": "shop1",
+          "title": "Test",
+          "description": "Desc",
+          "price": 0
+        },
+        "status": "completed",
+        "result": {
+          "id": "e28d37d5",
+          "status": "pending"
+        },
+        "started_at": "2026-05-06T09:13:14.799288",
+        "task_id": "beb9a815",
+        "completed_at": "2026-05-06T09:13:19.849636"
+      }
+    ],
+    "status": "completed",
+    "current_step": 2,
+    "product_data": {
+      "recommended_price": 1147.22,
+      "profit_margin": 24.68
+    },
+    "created_at": "2026-05-06T09:13:05.640781",
+    "updated_at": "2026-05-06T09:13:19.849648"
+  }
+]

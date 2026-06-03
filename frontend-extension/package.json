@@ -1,0 +1,11 @@
+{
+  "name": "icross-extension",
+  "version": "0.1.0",
+  "description": "iCross Agent browser extension",
+  "private": true,
+  "scripts": {
+    "dev": "web-ext run --source-dir ./",
+    "build": "echo 'Copy files to dist/' && mkdir -p dist && cp -r manifest.json popup.html popup.js popup.css background.js content-*.js lib/ dist/",
+    "lint": "web-ext lint"
+  }
+}

@@ -1,0 +1,13 @@
+[
+  {
+    "id": "shop001_stocks_2026-05-06",
+    "shop_id": "shop001",
+    "type": "stocks",
+    "date": "2026-05-06",
+    "data": {
+      "items": [],
+      "total": 0
+    },
+    "saved_at": "2026-05-06T23:22:41.891799"
+  }
+]

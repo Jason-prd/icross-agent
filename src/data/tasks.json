@@ -1,0 +1,1852 @@
+[
+  {
+    "id": "c89b9925",
+    "task_type": "workflow_step_search",
+    "status": "failed",
+    "params": {
+      "keyword": "test product",
+      "page_size": 5,
+      "product_name_cn": "test product",
+      "product_description_cn": "",
+      "purchase_price_cny": 50.0,
+      "weight_kg": 0.5,
+      "category": ""
+    },
+    "result": null,
+    "progress": 0,
+    "error": "search_1688_products_sync() got an unexpected keyword argument 'max_retries'\nTraceback (most recent call last):\n  File \"D:\\iCross Agent\\src\\icross\\services\\task_queue.py\", line 46, in execute_task\n    result = await handler(**task.get(\"params\", {}))\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\iCross Agent\\src\\icross\\services\\workflow.py\", line 69, in handle_search_product\n    result = search_1688_products_sync(keyword, page=1, page_size=page_size, max_retries=2)\nTypeError: search_1688_products_sync() got an unexpected keyword argument 'max_retries'\n",
+    "priority": 0,
+    "created_at": "2026-05-05T23:12:49.063731",
+    "started_at": "2026-05-05T23:12:49.065212",
+    "completed_at": null,
+    "updated_at": "2026-05-05T23:12:49.398449"
+  },
+  {
+    "id": "bd304c8b",
+    "task_type": "workflow_step_search",
+    "status": "failed",
+    "params": {
+      "keyword": "wireless earbuds",
+      "page_size": 5,
+      "product_name_cn": "wireless earbuds",
+      "product_description_cn": "",
+      "purchase_price_cny": 45.0,
+      "weight_kg": 0.3,
+      "category": ""
+    },
+    "result": null,
+    "progress": 0,
+    "error": "search_1688_products_sync() got an unexpected keyword argument 'max_retries'\nTraceback (most recent call last):\n  File \"D:\\iCross Agent\\src\\icross\\services\\task_queue.py\", line 46, in execute_task\n    result = await handler(**task.get(\"params\", {}))\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\iCross Agent\\src\\icross\\services\\workflow.py\", line 69, in handle_search_product\n    from icross.services.crawler import search_1688_products_sync\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: search_1688_products_sync() got an unexpected keyword argument 'max_retries'\n",
+    "priority": 0,
+    "created_at": "2026-05-05T23:13:37.055267",
+    "started_at": "2026-05-05T23:13:37.057585",
+    "completed_at": null,
+    "updated_at": "2026-05-05T23:13:37.059522"
+  },
+  {
+    "id": "6ce959a8",
+    "task_type": "workflow_step_search",
+    "status": "failed",
+    "params": {
+      "keyword": "wireless earbuds",
+      "page_size": 5,
+      "product_name_cn": "wireless earbuds",
+      "product_description_cn": "",
+      "purchase_price_cny": 45.0,
+      "weight_kg": 0.3,
+      "category": ""
+    },
+    "result": null,
+    "progress": 0,
+    "error": "search_1688_products_sync() got an unexpected keyword argument 'max_retries'\nTraceback (most recent call last):\n  File \"D:\\iCross Agent\\src\\icross\\services\\task_queue.py\", line 46, in execute_task\n    result = await handler(**task.get(\"params\", {}))\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\iCross Agent\\src\\icross\\services\\workflow.py\", line 69, in handle_search_product\n    from icross.services.crawler import search_1688_products_sync\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: search_1688_products_sync() got an unexpected keyword argument 'max_retries'\n",
+    "priority": 0,
+    "created_at": "2026-05-05T23:14:13.280590",
+    "started_at": "2026-05-05T23:14:13.282505",
+    "completed_at": null,
+    "updated_at": "2026-05-05T23:14:13.283705"
+  },
+  {
+    "id": "b45cc7e8",
+    "task_type": "workflow_step_search",
+    "status": "running",
+    "params": {
+      "keyword": "wireless earbuds",
+      "page_size": 5,
+      "product_name_cn": "wireless earbuds",
+      "product_description_cn": "",
+      "purchase_price_cny": 45.0,
+      "weight_kg": 0.3,
+      "category": ""
+    },
+    "result": null,
+    "progress": 0,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-05T23:17:36.842202",
+    "started_at": "2026-05-05T23:17:36.843896",
+    "completed_at": null,
+    "updated_at": "2026-05-05T23:17:36.843901"
+  },
+  {
+    "id": "702d5293",
+    "task_type": "workflow_step_search",
+    "status": "running",
+    "params": {
+      "keyword": "wireless earbuds",
+      "page_size": 5,
+      "product_name_cn": "wireless earbuds",
+      "product_description_cn": "",
+      "purchase_price_cny": 45.0,
+      "weight_kg": 0.3,
+      "category": ""
+    },
+    "result": null,
+    "progress": 0,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-05T23:19:07.877309",
+    "started_at": "2026-05-05T23:19:07.879923",
+    "completed_at": null,
+    "updated_at": "2026-05-05T23:19:07.879928"
+  },
+  {
+    "id": "fd71dfeb",
+    "task_type": "workflow_step_price",
+    "status": "completed",
+    "params": {
+      "purchase_price_cny": 50,
+      "weight_kg": 0.5,
+      "category_name": "电子产品",
+      "target_margin": 25,
+      "product_name_cn": "test"
+    },
+    "result": {
+      "purchase_price_rub": 625.0,
+      "logistics_cost_rub": 27.5,
+      "commission_rub": 126.19,
+      "commission_rate": 11.0,
+      "customs_duty_rub": 0.0,
+      "return_reserve_rub": 22.94,
+      "packaging_cost_rub": 25.0,
+      "other_cost_rub": 37.5,
+      "total_cost_rub": 864.14,
+      "profit_rub": 283.08,
+      "profit_margin_pct": 24.68,
+      "recommended_price_rub": 1147.22,
+      "price_tier": "basic"
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-05T23:39:08.802744",
+    "started_at": "2026-05-05T23:39:08.806003",
+    "completed_at": "2026-05-05T23:39:08.809587",
+    "updated_at": "2026-05-05T23:39:08.809593"
+  },
+  {
+    "id": "f3e4241f",
+    "task_type": "workflow_step_search",
+    "status": "running",
+    "params": {
+      "keyword": "无线蓝牙耳机",
+      "page_size": 5,
+      "product_name_cn": "无线蓝牙耳机",
+      "product_description_cn": "高品质蓝牙5.3耳机，降噪功能",
+      "purchase_price_cny": 45.0,
+      "weight_kg": 0.3,
+      "category": "电子产品"
+    },
+    "result": null,
+    "progress": 0,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-06T08:45:24.789051",
+    "started_at": "2026-05-06T08:45:24.792284",
+    "completed_at": null,
+    "updated_at": "2026-05-06T08:45:24.792290"
+  },
+  {
+    "id": "f0e23697",
+    "task_type": "workflow_step_price",
+    "status": "completed",
+    "params": {
+      "purchase_price_cny": 50,
+      "weight_kg": 0.5,
+      "category_name": "电子产品",
+      "target_margin": 25
+    },
+    "result": {
+      "purchase_price_rub": 625.0,
+      "logistics_cost_rub": 27.5,
+      "commission_rub": 126.19,
+      "commission_rate": 11.0,
+      "customs_duty_rub": 0.0,
+      "return_reserve_rub": 22.94,
+      "packaging_cost_rub": 25.0,
+      "other_cost_rub": 37.5,
+      "total_cost_rub": 864.14,
+      "profit_rub": 283.08,
+      "profit_margin_pct": 24.68,
+      "recommended_price_rub": 1147.22,
+      "price_tier": "basic"
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-06T08:48:42.895830",
+    "started_at": "2026-05-06T08:48:42.897576",
+    "completed_at": "2026-05-06T08:48:42.914633",
+    "updated_at": "2026-05-06T08:48:42.914640"
+  },
+  {
+    "id": "1ebf02e2",
+    "task_type": "workflow_step_draft",
+    "status": "completed",
+    "params": {
+      "shop_id": "test",
+      "title": "Test Product",
+      "description": "Test desc",
+      "price": 1500
+    },
+    "result": {
+      "id": "5e303ca4",
+      "status": "pending"
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-06T08:48:49.983590",
+    "started_at": "2026-05-06T08:48:49.985384",
+    "completed_at": "2026-05-06T08:48:50.001302",
+    "updated_at": "2026-05-06T08:48:50.001310"
+  },
+  {
+    "id": "88aab63e",
+    "task_type": "workflow_step_search",
+    "status": "running",
+    "params": {
+      "keyword": "无线蓝牙耳机",
+      "page_size": 5,
+      "product_name_cn": "无线蓝牙耳机",
+      "product_description_cn": "高品质蓝牙5.3耳机",
+      "purchase_price_cny": 45.0,
+      "weight_kg": 0.3,
+      "category": "Электроника"
+    },
+    "result": null,
+    "progress": 0,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-06T08:48:56.041068",
+    "started_at": "2026-05-06T08:48:56.043324",
+    "completed_at": null,
+    "updated_at": "2026-05-06T08:48:56.043329"
+  },
+  {
+    "id": "52af2ef3",
+    "task_type": "workflow_step_price",
+    "status": "completed",
+    "params": {
+      "purchase_price_cny": 50,
+      "weight_kg": 0.5,
+      "category_name": "Электроника",
+      "target_margin": 25,
+      "product_name_cn": "test"
+    },
+    "result": {
+      "purchase_price_rub": 625.0,
+      "logistics_cost_rub": 27.5,
+      "commission_rub": 126.19,
+      "commission_rate": 11.0,
+      "customs_duty_rub": 0.0,
+      "return_reserve_rub": 22.94,
+      "packaging_cost_rub": 25.0,
+      "other_cost_rub": 37.5,
+      "total_cost_rub": 864.14,
+      "profit_rub": 283.08,
+      "profit_margin_pct": 24.68,
+      "recommended_price_rub": 1147.22,
+      "price_tier": "basic"
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-06T09:07:45.335156",
+    "started_at": "2026-05-06T09:07:45.337753",
+    "completed_at": "2026-05-06T09:07:45.339835",
+    "updated_at": "2026-05-06T09:07:45.339840"
+  },
+  {
+    "id": "935a604d",
+    "task_type": "workflow_step_draft",
+    "status": "completed",
+    "params": {
+      "shop_id": "test_shop",
+      "title": "",
+      "description": "",
+      "price": 0,
+      "product_name_cn": "test",
+      "recommended_price": 1147.22,
+      "profit_margin": 24.68
+    },
+    "result": {
+      "id": "9c7d4117",
+      "status": "pending"
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-06T09:07:58.523642",
+    "started_at": "2026-05-06T09:07:58.526407",
+    "completed_at": "2026-05-06T09:07:58.529033",
+    "updated_at": "2026-05-06T09:07:58.529039"
+  },
+  {
+    "id": "5a59d64d",
+    "task_type": "workflow_step_price",
+    "status": "completed",
+    "params": {
+      "purchase_price_cny": 50,
+      "weight_kg": 0.5,
+      "category_name": "Электроника",
+      "target_margin": 25
+    },
+    "result": {
+      "purchase_price_rub": 625.0,
+      "logistics_cost_rub": 27.5,
+      "commission_rub": 126.19,
+      "commission_rate": 11.0,
+      "customs_duty_rub": 0.0,
+      "return_reserve_rub": 22.94,
+      "packaging_cost_rub": 25.0,
+      "other_cost_rub": 37.5,
+      "total_cost_rub": 864.14,
+      "profit_rub": 283.08,
+      "profit_margin_pct": 24.68,
+      "recommended_price_rub": 1147.22,
+      "price_tier": "basic"
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-06T09:10:11.303655",
+    "started_at": "2026-05-06T09:10:11.306441",
+    "completed_at": "2026-05-06T09:10:11.308512",
+    "updated_at": "2026-05-06T09:10:11.308518"
+  },
+  {
+    "id": "996a4fc0",
+    "task_type": "workflow_step_draft",
+    "status": "completed",
+    "params": {
+      "shop_id": "test_shop",
+      "title": "",
+      "description": "",
+      "price": 0,
+      "recommended_price": 1147.22,
+      "profit_margin": 24.68
+    },
+    "result": {
+      "id": "8a26af4d",
+      "status": "pending"
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-06T09:10:22.464148",
+    "started_at": "2026-05-06T09:10:22.466947",
+    "completed_at": "2026-05-06T09:10:22.469431",
+    "updated_at": "2026-05-06T09:10:22.469436"
+  },
+  {
+    "id": "96d5b498",
+    "task_type": "workflow_step_price",
+    "status": "completed",
+    "params": {
+      "purchase_price_cny": 100,
+      "weight_kg": 1.0,
+      "category_name": "电子产品",
+      "target_margin": 30
+    },
+    "result": {
+      "purchase_price_rub": 1250.0,
+      "logistics_cost_rub": 55.0,
+      "commission_rub": 322.55,
+      "commission_rate": 13.0,
+      "customs_duty_rub": 0.0,
+      "return_reserve_rub": 49.62,
+      "packaging_cost_rub": 25.0,
+      "other_cost_rub": 37.5,
+      "total_cost_rub": 1739.67,
+      "profit_rub": 741.45,
+      "profit_margin_pct": 29.88,
+      "recommended_price_rub": 2481.12,
+      "price_tier": "mid"
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-06T09:11:57.197066",
+    "started_at": "2026-05-06T09:11:57.199339",
+    "completed_at": "2026-05-06T09:11:57.201101",
+    "updated_at": "2026-05-06T09:11:57.201106"
+  },
+  {
+    "id": "f4b566f5",
+    "task_type": "workflow_step_price",
+    "status": "completed",
+    "params": {
+      "purchase_price_cny": 100,
+      "weight_kg": 1.0,
+      "category_name": "电子产品",
+      "target_margin": 30
+    },
+    "result": {
+      "purchase_price_rub": 1250.0,
+      "logistics_cost_rub": 55.0,
+      "commission_rub": 322.55,
+      "commission_rate": 13.0,
+      "customs_duty_rub": 0.0,
+      "return_reserve_rub": 49.62,
+      "packaging_cost_rub": 25.0,
+      "other_cost_rub": 37.5,
+      "total_cost_rub": 1739.67,
+      "profit_rub": 741.45,
+      "profit_margin_pct": 29.88,
+      "recommended_price_rub": 2481.12,
+      "price_tier": "mid"
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-06T09:12:58.544362",
+    "started_at": "2026-05-06T09:12:58.548350",
+    "completed_at": "2026-05-06T09:12:58.552020",
+    "updated_at": "2026-05-06T09:12:58.552027"
+  },
+  {
+    "id": "33928aa5",
+    "task_type": "workflow_step_price",
+    "status": "completed",
+    "params": {
+      "purchase_price_cny": 50,
+      "weight_kg": 0.5,
+      "category_name": "Электроника",
+      "target_margin": 25
+    },
+    "result": {
+      "purchase_price_rub": 625.0,
+      "logistics_cost_rub": 27.5,
+      "commission_rub": 126.19,
+      "commission_rate": 11.0,
+      "customs_duty_rub": 0.0,
+      "return_reserve_rub": 22.94,
+      "packaging_cost_rub": 25.0,
+      "other_cost_rub": 37.5,
+      "total_cost_rub": 864.14,
+      "profit_rub": 283.08,
+      "profit_margin_pct": 24.68,
+      "recommended_price_rub": 1147.22,
+      "price_tier": "basic"
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-06T09:13:07.712378",
+    "started_at": "2026-05-06T09:13:07.714776",
+    "completed_at": "2026-05-06T09:13:07.716604",
+    "updated_at": "2026-05-06T09:13:07.716610"
+  },
+  {
+    "id": "beb9a815",
+    "task_type": "workflow_step_draft",
+    "status": "completed",
+    "params": {
+      "shop_id": "shop1",
+      "title": "Test",
+      "description": "Desc",
+      "price": 0,
+      "recommended_price": 1147.22,
+      "profit_margin": 24.68
+    },
+    "result": {
+      "id": "e28d37d5",
+      "status": "pending"
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-06T09:13:14.800554",
+    "started_at": "2026-05-06T09:13:14.802757",
+    "completed_at": "2026-05-06T09:13:14.830487",
+    "updated_at": "2026-05-06T09:13:14.830494"
+  },
+  {
+    "id": "2d3a276f",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "session_1778136478121",
+      "user_message": "看下近期我的订单入账情况",
+      "full_message": "[多店铺模式] 店铺 chencai global\n\n用户请求: 看下近期我的订单入账情况\n\n请针对以上店铺执行相应操作。",
+      "config": {
+        "configurable": {
+          "thread_id": "session_1778136478121",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "session_1778136478121",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-07T14:48:01.525020",
+    "started_at": "2026-05-07T14:48:01.527619",
+    "completed_at": "2026-05-07T14:49:26.277145",
+    "updated_at": "2026-05-07T14:49:26.277157"
+  },
+  {
+    "id": "f53789c7",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "session_1778136478121",
+      "user_message": "物流的费用你没算吗",
+      "full_message": "[多店铺模式] 店铺 chencai global\n\n用户请求: 物流的费用你没算吗\n\n请针对以上店铺执行相应操作。",
+      "config": {
+        "configurable": {
+          "thread_id": "session_1778136478121",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "session_1778136478121",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-07T15:09:29.490306",
+    "started_at": "2026-05-07T15:09:29.491771",
+    "completed_at": "2026-05-07T15:10:49.675074",
+    "updated_at": "2026-05-07T15:10:49.675088"
+  },
+  {
+    "id": "eea468e7",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "session_1778143326896",
+      "user_message": "帮我分析一下我近期的订单和商品，我觉得我很多商品都需要调价了",
+      "full_message": "[多店铺模式] 店铺 chencai global\n\n用户请求: 帮我分析一下我近期的订单和商品，我觉得我很多商品都需要调价了\n\n请针对以上店铺执行相应操作。",
+      "config": {
+        "configurable": {
+          "thread_id": "session_1778143326896",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "session_1778143326896",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-07T16:42:36.299379",
+    "started_at": "2026-05-07T16:42:36.314665",
+    "completed_at": "2026-05-07T16:43:34.810118",
+    "updated_at": "2026-05-07T16:43:34.810127"
+  },
+  {
+    "id": "0a065bb4",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "session_1778143326896",
+      "user_message": "继续",
+      "full_message": "[多店铺模式] 店铺 chencai global\n\n用户请求: 继续\n\n请针对以上店铺执行相应操作。",
+      "config": {
+        "configurable": {
+          "thread_id": "session_1778143326896",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "session_1778143326896",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-07T17:39:10.231988",
+    "started_at": "2026-05-07T17:39:10.234134",
+    "completed_at": "2026-05-07T17:39:12.039784",
+    "updated_at": "2026-05-07T17:39:12.039794"
+  },
+  {
+    "id": "953a8933",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "session_1778161711303",
+      "user_message": "我需要你测试一下你的所有技能，并把有问题的技能整理成报告发给我",
+      "full_message": "[多店铺模式] 店铺 chencai global\n\n用户请求: 我需要你测试一下你的所有技能，并把有问题的技能整理成报告发给我\n\n请针对以上店铺执行相应操作。",
+      "config": {
+        "configurable": {
+          "thread_id": "session_1778161711303",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "session_1778161711303",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-07T21:48:50.783816",
+    "started_at": "2026-05-07T21:48:50.786920",
+    "completed_at": "2026-05-07T21:49:57.085568",
+    "updated_at": "2026-05-07T21:49:57.085584"
+  },
+  {
+    "id": "684e25a9",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "session_1778161711303",
+      "user_message": "继续测试",
+      "full_message": "[多店铺模式] 店铺 chencai global\n\n用户请求: 继续测试\n\n请针对以上店铺执行相应操作。",
+      "config": {
+        "configurable": {
+          "thread_id": "session_1778161711303",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "session_1778161711303",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-07T21:50:50.782535",
+    "started_at": "2026-05-07T21:50:50.784076",
+    "completed_at": "2026-05-07T21:50:50.794289",
+    "updated_at": "2026-05-07T21:50:50.794306"
+  },
+  {
+    "id": "1b04e7db",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "session_1778161711303",
+      "user_message": "你之前返回错误的情况是什么样的，给我描述下",
+      "full_message": "[多店铺模式] 店铺 chencai global\n\n用户请求: 你之前返回错误的情况是什么样的，给我描述下\n\n请针对以上店铺执行相应操作。",
+      "config": {
+        "configurable": {
+          "thread_id": "session_1778161711303",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "session_1778161711303",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-07T21:56:01.171070",
+    "started_at": "2026-05-07T21:56:01.172727",
+    "completed_at": "2026-05-07T21:56:01.182895",
+    "updated_at": "2026-05-07T21:56:01.182913"
+  },
+  {
+    "id": "ea2119af",
+    "task_type": "agent_exec",
+    "status": "running",
+    "params": {
+      "session_id": "session_1778162914998",
+      "user_message": "我需要你测试一下你的所有技能，并把有问题的技能整理成报告发给我",
+      "full_message": "[多店铺模式] 店铺 chencai global\n\n用户请求: 我需要你测试一下你的所有技能，并把有问题的技能整理成报告发给我\n\n请针对以上店铺执行相应操作。",
+      "config": {
+        "configurable": {
+          "thread_id": "session_1778162914998",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": null,
+    "progress": 0,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-07T22:08:36.923333",
+    "started_at": "2026-05-07T22:08:36.925309",
+    "completed_at": null,
+    "updated_at": "2026-05-07T22:08:36.925316"
+  },
+  {
+    "id": "07a462b7",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "session_1778162914998",
+      "user_message": "测试结果如何，截止目前",
+      "full_message": "[多店铺模式] 店铺 chencai global\n\n用户请求: 测试结果如何，截止目前\n\n请针对以上店铺执行相应操作。",
+      "config": {
+        "configurable": {
+          "thread_id": "session_1778162914998",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "session_1778162914998",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-07T22:22:37.363993",
+    "started_at": "2026-05-07T22:22:37.366206",
+    "completed_at": "2026-05-07T22:22:39.022192",
+    "updated_at": "2026-05-07T22:22:39.022203"
+  },
+  {
+    "id": "08b43699",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "session_1778162914998",
+      "user_message": "测试结果如何，截止目前",
+      "full_message": "[多店铺模式] 店铺 chencai global\n\n用户请求: 测试结果如何，截止目前\n\n请针对以上店铺执行相应操作。",
+      "config": {
+        "configurable": {
+          "thread_id": "session_1778162914998",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "session_1778162914998",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-07T22:42:49.711857",
+    "started_at": "2026-05-07T22:42:49.713317",
+    "completed_at": "2026-05-07T22:42:49.727393",
+    "updated_at": "2026-05-07T22:42:49.727402"
+  },
+  {
+    "id": "43c4a0bc",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "session_1778162914998",
+      "user_message": "测试结果如何，截止目前",
+      "full_message": "[多店铺模式] 店铺 chencai global\n\n用户请求: 测试结果如何，截止目前\n\n请针对以上店铺执行相应操作。",
+      "config": {
+        "configurable": {
+          "thread_id": "session_1778162914998",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "session_1778162914998",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-07T22:46:23.227479",
+    "started_at": "2026-05-07T22:46:23.228993",
+    "completed_at": "2026-05-07T22:46:23.242716",
+    "updated_at": "2026-05-07T22:46:23.242724"
+  },
+  {
+    "id": "15133a0e",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "session_1778165190270",
+      "user_message": "我需要你测试一下你的所有技能，并把有问题的技能整理成报告发给我",
+      "full_message": "[多店铺模式] 店铺 chencai global\n\n用户请求: 我需要你测试一下你的所有技能，并把有问题的技能整理成报告发给我\n\n请针对以上店铺执行相应操作。",
+      "config": {
+        "configurable": {
+          "thread_id": "session_1778165190270",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "session_1778165190270",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-07T22:46:32.494831",
+    "started_at": "2026-05-07T22:46:32.496583",
+    "completed_at": "2026-05-07T22:47:32.600801",
+    "updated_at": "2026-05-07T22:47:32.600812"
+  },
+  {
+    "id": "64919d87",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "session_1778165190270",
+      "user_message": "测试效果如何",
+      "full_message": "[多店铺模式] 店铺 chencai global\n\n用户请求: 测试效果如何\n\n请针对以上店铺执行相应操作。",
+      "config": {
+        "configurable": {
+          "thread_id": "session_1778165190270",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "session_1778165190270",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-07T22:59:52.342549",
+    "started_at": "2026-05-07T22:59:52.344387",
+    "completed_at": "2026-05-07T22:59:52.356398",
+    "updated_at": "2026-05-07T22:59:52.356409"
+  },
+  {
+    "id": "bfb3b714",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "test-ws-1",
+      "user_message": "Say hello in one word.",
+      "full_message": "Say hello in one word.",
+      "config": {
+        "configurable": {
+          "thread_id": "test-ws-1",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "test-ws-1",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-08T19:30:02.309744",
+    "started_at": "2026-05-08T19:30:02.314582",
+    "completed_at": "2026-05-08T19:30:08.358156",
+    "updated_at": "2026-05-08T19:30:08.358166"
+  },
+  {
+    "id": "b766abff",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "test-ws-2",
+      "user_message": "Say hello in one word.",
+      "full_message": "Say hello in one word.",
+      "config": {
+        "configurable": {
+          "thread_id": "test-ws-2",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "test-ws-2",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-08T22:21:05.578656",
+    "started_at": "2026-05-08T22:21:05.594643",
+    "completed_at": "2026-05-08T22:21:12.299060",
+    "updated_at": "2026-05-08T22:21:12.299071"
+  },
+  {
+    "id": "f30666e2",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "test-ws-3",
+      "user_message": "Say hello in one word.",
+      "full_message": "Say hello in one word.",
+      "config": {
+        "configurable": {
+          "thread_id": "test-ws-3",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "test-ws-3",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-08T22:21:32.519981",
+    "started_at": "2026-05-08T22:21:32.522166",
+    "completed_at": "2026-05-08T22:21:37.598450",
+    "updated_at": "2026-05-08T22:21:37.598458"
+  },
+  {
+    "id": "30eb99ad",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "test-ws-4",
+      "user_message": "Hi",
+      "full_message": "Hi",
+      "config": {
+        "configurable": {
+          "thread_id": "test-ws-4",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "test-ws-4",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-08T22:36:05.355188",
+    "started_at": "2026-05-08T22:36:05.356810",
+    "completed_at": "2026-05-08T22:36:16.053212",
+    "updated_at": "2026-05-08T22:36:16.053225"
+  },
+  {
+    "id": "e17aa6fc",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "test123",
+      "user_message": "hi",
+      "full_message": "hi",
+      "config": {
+        "configurable": {
+          "thread_id": "test123",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "test123",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-09T09:59:56.252002",
+    "started_at": "2026-05-09T09:59:56.255026",
+    "completed_at": "2026-05-09T10:00:11.217487",
+    "updated_at": "2026-05-09T10:00:11.217497"
+  },
+  {
+    "id": "c99a84d4",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "test-fix-1778292018",
+      "user_message": "你好，请回复一句话",
+      "full_message": "你好，请回复一句话",
+      "config": {
+        "configurable": {
+          "thread_id": "test-fix-1778292018",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "test-fix-1778292018",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-09T10:00:20.447250",
+    "started_at": "2026-05-09T10:00:20.448868",
+    "completed_at": "2026-05-09T10:00:27.906058",
+    "updated_at": "2026-05-09T10:00:27.906065"
+  },
+  {
+    "id": "d2807b83",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "test-log-1778292046",
+      "user_message": "你好，请回复一句话",
+      "full_message": "你好，请回复一句话",
+      "config": {
+        "configurable": {
+          "thread_id": "test-log-1778292046",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "test-log-1778292046",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-09T10:00:48.772671",
+    "started_at": "2026-05-09T10:00:48.774431",
+    "completed_at": "2026-05-09T10:00:53.098547",
+    "updated_at": "2026-05-09T10:00:53.098556"
+  },
+  {
+    "id": "0e606c9e",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "test-long-1778292149",
+      "user_message": "你好，请简单说一句话，越短越好",
+      "full_message": "你好，请简单说一句话，越短越好",
+      "config": {
+        "configurable": {
+          "thread_id": "test-long-1778292149",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "test-long-1778292149",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-09T10:02:31.222753",
+    "started_at": "2026-05-09T10:02:31.224439",
+    "completed_at": "2026-05-09T10:02:35.977314",
+    "updated_at": "2026-05-09T10:02:35.977323"
+  },
+  {
+    "id": "1f39ea2d",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "frontend-test-1778293580",
+      "user_message": "你好，回复一句话",
+      "full_message": "你好，回复一句话",
+      "config": {
+        "configurable": {
+          "thread_id": "frontend-test-1778293580",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "frontend-test-1778293580",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-09T10:26:22.911529",
+    "started_at": "2026-05-09T10:26:22.913409",
+    "completed_at": "2026-05-09T10:26:27.494413",
+    "updated_at": "2026-05-09T10:26:27.494420"
+  },
+  {
+    "id": "63e3bacd",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "ws-proxy-1778293730",
+      "user_message": "你好，回复一句话",
+      "full_message": "你好，回复一句话",
+      "config": {
+        "configurable": {
+          "thread_id": "ws-proxy-1778293730",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "ws-proxy-1778293730",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-09T10:28:50.105284",
+    "started_at": "2026-05-09T10:28:50.106992",
+    "completed_at": "2026-05-09T10:28:55.217768",
+    "updated_at": "2026-05-09T10:28:55.217775"
+  },
+  {
+    "id": "d64ec77e",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "c6f88a0c-a4c4-49d2-aa76-9626732226e0",
+      "user_message": "你看下我的店铺运营现状",
+      "full_message": "你看下我的店铺运营现状",
+      "config": {
+        "configurable": {
+          "thread_id": "c6f88a0c-a4c4-49d2-aa76-9626732226e0",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "c6f88a0c-a4c4-49d2-aa76-9626732226e0",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-09T10:30:10.160811",
+    "started_at": "2026-05-09T10:30:10.162757",
+    "completed_at": "2026-05-09T10:31:32.052508",
+    "updated_at": "2026-05-09T10:31:32.052515"
+  },
+  {
+    "id": "fe3c72ae",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "c6f88a0c-a4c4-49d2-aa76-9626732226e0",
+      "user_message": "生成一个调价报告",
+      "full_message": "生成一个调价报告",
+      "config": {
+        "configurable": {
+          "thread_id": "c6f88a0c-a4c4-49d2-aa76-9626732226e0",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "c6f88a0c-a4c4-49d2-aa76-9626732226e0",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-09T11:16:14.578647",
+    "started_at": "2026-05-09T11:16:14.582089",
+    "completed_at": "2026-05-09T11:17:59.514556",
+    "updated_at": "2026-05-09T11:17:59.514567"
+  },
+  {
+    "id": "ff63c90d",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "c6f88a0c-a4c4-49d2-aa76-9626732226e0",
+      "user_message": "继续",
+      "full_message": "继续",
+      "config": {
+        "configurable": {
+          "thread_id": "c6f88a0c-a4c4-49d2-aa76-9626732226e0",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "c6f88a0c-a4c4-49d2-aa76-9626732226e0",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-09T11:18:46.795950",
+    "started_at": "2026-05-09T11:18:46.798017",
+    "completed_at": "2026-05-09T11:18:46.817664",
+    "updated_at": "2026-05-09T11:18:46.817672"
+  },
+  {
+    "id": "2309dfc0",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "verify-fix-1778297482",
+      "user_message": "店铺有什么工具可用？回复一句话",
+      "full_message": "店铺有什么工具可用？回复一句话",
+      "config": {
+        "configurable": {
+          "thread_id": "verify-fix-1778297482",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "verify-fix-1778297482",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-09T11:31:24.456693",
+    "started_at": "2026-05-09T11:31:24.459690",
+    "completed_at": "2026-05-09T11:31:48.379571",
+    "updated_at": "2026-05-09T11:31:48.379580"
+  },
+  {
+    "id": "dc78bb64",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "verify-steps-1778297562",
+      "user_message": "你好",
+      "full_message": "你好",
+      "config": {
+        "configurable": {
+          "thread_id": "verify-steps-1778297562",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "verify-steps-1778297562",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-09T11:32:44.236492",
+    "started_at": "2026-05-09T11:32:44.238314",
+    "completed_at": "2026-05-09T11:32:53.170548",
+    "updated_at": "2026-05-09T11:32:53.170556"
+  },
+  {
+    "id": "903814d4",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "steps-test-1778297810",
+      "user_message": "查看店铺信息",
+      "full_message": "查看店铺信息",
+      "config": {
+        "configurable": {
+          "thread_id": "steps-test-1778297810",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "steps-test-1778297810",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-09T11:36:52.953663",
+    "started_at": "2026-05-09T11:36:52.955553",
+    "completed_at": "2026-05-09T11:37:23.837643",
+    "updated_at": "2026-05-09T11:37:23.837650"
+  },
+  {
+    "id": "512df8eb",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "quick-test-1778297857",
+      "user_message": "你好",
+      "full_message": "你好",
+      "config": {
+        "configurable": {
+          "thread_id": "quick-test-1778297857",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "quick-test-1778297857",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-09T11:37:39.205832",
+    "started_at": "2026-05-09T11:37:39.207845",
+    "completed_at": "2026-05-09T11:37:46.329897",
+    "updated_at": "2026-05-09T11:37:46.329905"
+  },
+  {
+    "id": "d65fc87b",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "final-test-1778297982",
+      "user_message": "你好，请简单回复一句话",
+      "full_message": "你好，请简单回复一句话",
+      "config": {
+        "configurable": {
+          "thread_id": "final-test-1778297982",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "final-test-1778297982",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-09T11:39:44.712577",
+    "started_at": "2026-05-09T11:39:44.715106",
+    "completed_at": "2026-05-09T11:39:51.697009",
+    "updated_at": "2026-05-09T11:39:51.697025"
+  },
+  {
+    "id": "c81dfb0a",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "workflow-test-1778298032",
+      "user_message": "查看店铺信息",
+      "full_message": "查看店铺信息",
+      "config": {
+        "configurable": {
+          "thread_id": "workflow-test-1778298032",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "workflow-test-1778298032",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-09T11:40:34.424387",
+    "started_at": "2026-05-09T11:40:34.427036",
+    "completed_at": "2026-05-09T11:40:51.069628",
+    "updated_at": "2026-05-09T11:40:51.069636"
+  },
+  {
+    "id": "2d0584ec",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "slow-test-1778298362",
+      "user_message": "查看店铺信息",
+      "full_message": "查看店铺信息",
+      "config": {
+        "configurable": {
+          "thread_id": "slow-test-1778298362",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "slow-test-1778298362",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-09T11:46:04.918442",
+    "started_at": "2026-05-09T11:46:04.921300",
+    "completed_at": "2026-05-09T11:46:54.714822",
+    "updated_at": "2026-05-09T11:46:54.714829"
+  },
+  {
+    "id": "a94f4b5d",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "55cc53c5-f249-4fb0-a621-bdb1dc5ae4e6",
+      "user_message": "查看店铺信息和商品列表",
+      "full_message": "查看店铺信息和商品列表",
+      "config": {
+        "configurable": {
+          "thread_id": "55cc53c5-f249-4fb0-a621-bdb1dc5ae4e6",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "55cc53c5-f249-4fb0-a621-bdb1dc5ae4e6",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-09T11:56:14.839595",
+    "started_at": "2026-05-09T11:56:14.842951",
+    "completed_at": "2026-05-09T11:57:17.450233",
+    "updated_at": "2026-05-09T11:57:17.450241"
+  },
+  {
+    "id": "20ad20e4",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "0b668bb2-df9d-4c99-98ff-6d29e46e2b89",
+      "user_message": "你好",
+      "full_message": "你好",
+      "config": {
+        "configurable": {
+          "thread_id": "0b668bb2-df9d-4c99-98ff-6d29e46e2b89",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "0b668bb2-df9d-4c99-98ff-6d29e46e2b89",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-09T19:52:04.260882",
+    "started_at": "2026-05-09T19:52:04.263576",
+    "completed_at": "2026-05-09T19:52:18.461952",
+    "updated_at": "2026-05-09T19:52:18.461960"
+  },
+  {
+    "id": "9a22807e",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "6d616bc2-e305-4d2c-8b14-13e921a1493e",
+      "user_message": "你现在有哪些技能",
+      "full_message": "你现在有哪些技能",
+      "config": {
+        "configurable": {
+          "thread_id": "6d616bc2-e305-4d2c-8b14-13e921a1493e",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "6d616bc2-e305-4d2c-8b14-13e921a1493e",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-12T15:50:59.316766",
+    "started_at": "2026-05-12T15:50:59.322137",
+    "completed_at": "2026-05-12T15:51:39.017513",
+    "updated_at": "2026-05-12T15:51:39.017520"
+  },
+  {
+    "id": "1de6828a",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "439af57b-234e-4d6e-bde1-78ebd5b99f9b",
+      "user_message": "根据现在你的能力，规划一下你现在能实现哪些电商运营的场景",
+      "full_message": "根据现在你的能力，规划一下你现在能实现哪些电商运营的场景",
+      "config": {
+        "configurable": {
+          "thread_id": "439af57b-234e-4d6e-bde1-78ebd5b99f9b",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "439af57b-234e-4d6e-bde1-78ebd5b99f9b",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-18T23:15:19.278435",
+    "started_at": "2026-05-18T23:15:19.282209",
+    "completed_at": "2026-05-18T23:15:19.291270",
+    "updated_at": "2026-05-18T23:15:19.291279"
+  },
+  {
+    "id": "16273922",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "439af57b-234e-4d6e-bde1-78ebd5b99f9b",
+      "user_message": "根据现在你的能力，规划一下你现在能实现哪些电商运营的场景",
+      "full_message": "根据现在你的能力，规划一下你现在能实现哪些电商运营的场景",
+      "config": {
+        "configurable": {
+          "thread_id": "439af57b-234e-4d6e-bde1-78ebd5b99f9b",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "439af57b-234e-4d6e-bde1-78ebd5b99f9b",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-18T23:20:06.901187",
+    "started_at": "2026-05-18T23:20:06.905775",
+    "completed_at": "2026-05-18T23:20:58.844400",
+    "updated_at": "2026-05-18T23:20:58.844410"
+  },
+  {
+    "id": "791e7206",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "db79174a-05e1-434b-8f4b-fe76a3456a47",
+      "user_message": "帮我看下当前销售的商品，调整一下有库存的商品标题和描述",
+      "full_message": "帮我看下当前销售的商品，调整一下有库存的商品标题和描述",
+      "config": {
+        "configurable": {
+          "thread_id": "db79174a-05e1-434b-8f4b-fe76a3456a47",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "db79174a-05e1-434b-8f4b-fe76a3456a47",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-19T00:31:07.867003",
+    "started_at": "2026-05-19T00:31:07.871972",
+    "completed_at": "2026-05-19T00:31:34.778365",
+    "updated_at": "2026-05-19T00:31:34.778374"
+  },
+  {
+    "id": "29f759a8",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "db79174a-05e1-434b-8f4b-fe76a3456a47",
+      "user_message": "帮我看下当前销售的商品，调整一下有库存的商品标题和描述",
+      "full_message": "帮我看下当前销售的商品，调整一下有库存的商品标题和描述",
+      "config": {
+        "configurable": {
+          "thread_id": "db79174a-05e1-434b-8f4b-fe76a3456a47",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "db79174a-05e1-434b-8f4b-fe76a3456a47",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-19T09:06:15.848167",
+    "started_at": "2026-05-19T09:06:15.851841",
+    "completed_at": "2026-05-19T09:06:22.375132",
+    "updated_at": "2026-05-19T09:06:22.375144"
+  },
+  {
+    "id": "382a68b9",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "db79174a-05e1-434b-8f4b-fe76a3456a47",
+      "user_message": "帮我看下当前销售的商品，调整一下有库存的商品标题和描述",
+      "full_message": "帮我看下当前销售的商品，调整一下有库存的商品标题和描述",
+      "config": {
+        "configurable": {
+          "thread_id": "db79174a-05e1-434b-8f4b-fe76a3456a47",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "db79174a-05e1-434b-8f4b-fe76a3456a47",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-19T09:18:52.881247",
+    "started_at": "2026-05-19T09:18:52.884415",
+    "completed_at": "2026-05-19T09:18:59.426150",
+    "updated_at": "2026-05-19T09:18:59.426161"
+  },
+  {
+    "id": "2cda6918",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "eb2bf2a3-b15d-4786-b8fd-5e0df6c28b3f",
+      "user_message": "帮我看下当前销售的商品，调整一下有库存的商品标题和描述",
+      "full_message": "帮我看下当前销售的商品，调整一下有库存的商品标题和描述",
+      "config": {
+        "configurable": {
+          "thread_id": "eb2bf2a3-b15d-4786-b8fd-5e0df6c28b3f",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "eb2bf2a3-b15d-4786-b8fd-5e0df6c28b3f",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-19T09:19:22.128928",
+    "started_at": "2026-05-19T09:19:22.131303",
+    "completed_at": "2026-05-19T09:19:36.398052",
+    "updated_at": "2026-05-19T09:19:36.398060"
+  },
+  {
+    "id": "bbbfb4b2",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "eb2bf2a3-b15d-4786-b8fd-5e0df6c28b3f",
+      "user_message": "帮我看下当前销售的商品，调整一下有库存的商品标题和描述",
+      "full_message": "帮我看下当前销售的商品，调整一下有库存的商品标题和描述",
+      "config": {
+        "configurable": {
+          "thread_id": "eb2bf2a3-b15d-4786-b8fd-5e0df6c28b3f",
+          "shop_id": ""
+        }
+      }
+    },
+    "result": {
+      "session_id": "eb2bf2a3-b15d-4786-b8fd-5e0df6c28b3f",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-19T09:28:08.137430",
+    "started_at": "2026-05-19T09:28:08.141189",
+    "completed_at": "2026-05-19T09:28:34.935157",
+    "updated_at": "2026-05-19T09:28:34.935173"
+  },
+  {
+    "id": "3c590c43",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "eb2bf2a3-b15d-4786-b8fd-5e0df6c28b3f",
+      "user_message": "帮我看下当前销售的商品，调整一下有库存的商品标题和描述",
+      "full_message": "当前店铺: Chencai Global\n\n用户: 帮我看下当前销售的商品，调整一下有库存的商品标题和描述",
+      "config": {
+        "configurable": {
+          "thread_id": "eb2bf2a3-b15d-4786-b8fd-5e0df6c28b3f",
+          "shop_id": "Chencai Global"
+        }
+      }
+    },
+    "result": {
+      "session_id": "eb2bf2a3-b15d-4786-b8fd-5e0df6c28b3f",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-19T09:38:37.321275",
+    "started_at": "2026-05-19T09:38:37.324592",
+    "completed_at": "2026-05-19T09:38:46.450586",
+    "updated_at": "2026-05-19T09:38:46.450593"
+  },
+  {
+    "id": "c1cc71b5",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "4698e9b2-61fe-4f11-bf9e-1f99cd593f54",
+      "user_message": "帮我看下当前销售的商品，调整一下有库存的商品标题和描述",
+      "full_message": "当前店铺: Chencai Global\n\n用户: 帮我看下当前销售的商品，调整一下有库存的商品标题和描述",
+      "config": {
+        "configurable": {
+          "thread_id": "4698e9b2-61fe-4f11-bf9e-1f99cd593f54",
+          "shop_id": "Chencai Global"
+        }
+      }
+    },
+    "result": {
+      "session_id": "4698e9b2-61fe-4f11-bf9e-1f99cd593f54",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-19T09:44:09.897930",
+    "started_at": "2026-05-19T09:44:09.902257",
+    "completed_at": "2026-05-19T09:44:52.137868",
+    "updated_at": "2026-05-19T09:44:52.137877"
+  },
+  {
+    "id": "ec713a38",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "56b1fda7-c424-4345-9652-928a559859ec",
+      "user_message": "帮我看下当前销售的商品，调整一下有库存的商品标题和描述",
+      "full_message": "当前店铺: Chencai Global\n\n用户: 帮我看下当前销售的商品，调整一下有库存的商品标题和描述",
+      "config": {
+        "configurable": {
+          "thread_id": "56b1fda7-c424-4345-9652-928a559859ec",
+          "shop_id": "Chencai Global"
+        }
+      }
+    },
+    "result": {
+      "session_id": "56b1fda7-c424-4345-9652-928a559859ec",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-19T09:50:57.259082",
+    "started_at": "2026-05-19T09:50:57.263335",
+    "completed_at": "2026-05-19T09:51:31.249035",
+    "updated_at": "2026-05-19T09:51:31.249048"
+  },
+  {
+    "id": "3def068e",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "ddfaab3a-9447-40c5-bb31-5c74df000320",
+      "user_message": "帮我看下当前销售的商品，调整一下有库存的商品标题和描述",
+      "full_message": "当前店铺: Chencai Global (shop_id: Chencai Global)\n\n用户: 帮我看下当前销售的商品，调整一下有库存的商品标题和描述",
+      "config": {
+        "configurable": {
+          "thread_id": "ddfaab3a-9447-40c5-bb31-5c74df000320",
+          "shop_id": "Chencai Global"
+        }
+      }
+    },
+    "result": {
+      "session_id": "ddfaab3a-9447-40c5-bb31-5c74df000320",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-19T09:53:03.736669",
+    "started_at": "2026-05-19T09:53:03.739780",
+    "completed_at": "2026-05-19T09:53:58.014210",
+    "updated_at": "2026-05-19T09:53:58.014218"
+  },
+  {
+    "id": "876da0dd",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "ddfaab3a-9447-40c5-bb31-5c74df000320",
+      "user_message": "帮我看下当前销售的商品，调整一下有库存的商品标题和描述",
+      "full_message": "当前店铺: Chencai Global (shop_id: Chencai Global)\n\n用户: 帮我看下当前销售的商品，调整一下有库存的商品标题和描述",
+      "config": {
+        "configurable": {
+          "thread_id": "ddfaab3a-9447-40c5-bb31-5c74df000320",
+          "shop_id": "Chencai Global"
+        }
+      }
+    },
+    "result": {
+      "session_id": "ddfaab3a-9447-40c5-bb31-5c74df000320",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-19T09:59:01.263465",
+    "started_at": "2026-05-19T09:59:01.265945",
+    "completed_at": "2026-05-19T09:59:14.006827",
+    "updated_at": "2026-05-19T09:59:14.006834"
+  },
+  {
+    "id": "c45fe528",
+    "task_type": "agent_exec",
+    "status": "completed",
+    "params": {
+      "session_id": "ddfaab3a-9447-40c5-bb31-5c74df000320",
+      "user_message": "帮我看下当前销售的商品，调整一下有库存的商品标题和描述",
+      "full_message": "当前店铺: Chencai Global (shop_id: Chencai Global)\n\n用户: 帮我看下当前销售的商品，调整一下有库存的商品标题和描述",
+      "config": {
+        "configurable": {
+          "thread_id": "ddfaab3a-9447-40c5-bb31-5c74df000320",
+          "shop_id": "Chencai Global"
+        }
+      }
+    },
+    "result": {
+      "session_id": "ddfaab3a-9447-40c5-bb31-5c74df000320",
+      "status": "completed",
+      "error": null
+    },
+    "progress": 100,
+    "error": null,
+    "priority": 0,
+    "created_at": "2026-05-19T10:30:51.068476",
+    "started_at": "2026-05-19T10:30:51.072838",
+    "completed_at": "2026-05-19T10:31:37.373772",
+    "updated_at": "2026-05-19T10:31:37.373779"
+  }
+]

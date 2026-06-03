@@ -1,0 +1,147 @@
+{
+  "tiers": {
+    "fast": {
+      "provider": "deepseek",
+      "model": "deepseek-v4-flash",
+      "temperature": 0.3,
+      "max_tokens": 1024
+    },
+    "default": {
+      "provider": "deepseek",
+      "model": "deepseek-v4-flash",
+      "temperature": 0.3,
+      "max_tokens": 2048
+    },
+    "quality": {
+      "provider": "deepseek",
+      "model": "deepseek-v4-flash",
+      "temperature": 0.3,
+      "max_tokens": 4096
+    },
+    "embedding": {
+      "provider": "minimax",
+      "model": "embo-01",
+      "temperature": 0,
+      "max_tokens": 0
+    }
+  },
+  "features": {
+    "product.title.optimize": {
+      "tier": "default"
+    },
+    "product.description.generate": {
+      "tier": "default",
+      "temperature": 0.4
+    },
+    "product.attributes.complete": {
+      "tier": "default",
+      "temperature": 0.2
+    },
+    "product.quality.check": {
+      "tier": "default",
+      "temperature": 0.2
+    },
+    "product.price.suggest": {
+      "tier": "default",
+      "temperature": 0.4
+    },
+    "product.image.generate": {
+      "tier": "default",
+      "temperature": 0.3,
+      "max_tokens": 4096
+    },
+    "product.parse": {
+      "tier": "default"
+    },
+    "category.match": {
+      "tier": "fast",
+      "temperature": 0.1
+    },
+    "category.list": {
+      "tier": "fast",
+      "temperature": 0.1
+    },
+    "listing.generate": {
+      "tier": "default",
+      "temperature": 0.7,
+      "max_tokens": 4096
+    },
+    "translate.text": {
+      "tier": "default",
+      "temperature": 0.3,
+      "max_tokens": 2048
+    },
+    "session.title.summarize": {
+      "tier": "fast",
+      "max_tokens": 50
+    },
+    "agent.main": {
+      "tier": "default"
+    },
+    "agent.planner": {
+      "tier": "fast"
+    },
+    "auto-pilot.prompt": {
+      "tier": "fast",
+      "temperature": 0.3,
+      "max_tokens": 2048
+    },
+    "order.anomaly.detect": {
+      "tier": "default"
+    },
+    "order.max_purchase_price": {
+      "tier": "default"
+    },
+    "order.issue.classify": {
+      "tier": "fast"
+    },
+    "return.decision.suggest": {
+      "tier": "default"
+    },
+    "return.pattern.analyze": {
+      "tier": "quality"
+    },
+    "finance.daily.commentary": {
+      "tier": "default"
+    },
+    "finance.profit.anomaly": {
+      "tier": "quality"
+    },
+    "finance.transaction.tag": {
+      "tier": "fast"
+    },
+    "report.summary.generate": {
+      "tier": "quality"
+    },
+    "marketing.campaign.analyze": {
+      "tier": "quality"
+    },
+    "service.reply.suggest": {
+      "tier": "default"
+    },
+    "service.question.answer": {
+      "tier": "fast"
+    },
+    "service.review.analyze": {
+      "tier": "default"
+    },
+    "operations.replenish.suggest": {
+      "tier": "default"
+    },
+    "operations.trend.commentary": {
+      "tier": "default"
+    },
+    "autopilot.config.suggest": {
+      "tier": "default"
+    },
+    "pricing.competitive.analyze": {
+      "tier": "default"
+    },
+    "draft.quality.check": {
+      "tier": "default"
+    },
+    "draft.auto.correct": {
+      "tier": "quality"
+    }
+  }
+}

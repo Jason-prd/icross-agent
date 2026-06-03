@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iCross 选品助手</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="header">
+      <h1 class="logo">iCross 选品</h1>
+      <div class="header-actions">
+        <button id="btnRefresh" class="btn-icon" title="重新捕获">↻</button>
+        <button id="btnSettings" class="btn-icon" title="设置">⚙</button>
+      </div>
+    </header>
+
+    <!-- Status: Not on a product page -->
+    <div id="viewNoProduct" class="view">
+      <div class="empty-state">
+        <span class="empty-icon">📦</span>
+        <p>浏览 1688 / 拼多多 / 淘宝<br/>产品页面时自动捕获</p>
+        <button id="btnTestCapture" class="btn-secondary">测试捕获</button>
+      </div>
+      <div class="history-section">
+        <h3>最近捕获</h3>
+        <ul id="historyList" class="history-list"></ul>
+      </div>
+    </div>
+
+    <!-- Product captured -->
+    <div id="viewProduct" class="view hidden">
+      <div class="product-card">
+        <div class="product-images" id="productImages"></div>
+        <div class="product-info">
+          <h2 id="productTitle" class="product-title"></h2>
+          <div class="product-price-row">
+            <span class="product-price" id="productPrice"></span>
+            <span class="product-original-price" id="productOriginalPrice"></span>
+          </div>
+          <div class="product-meta">
+            <span id="productPlatform" class="tag"></span>
+            <span id="productSeller" class="seller"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Attributes -->
+      <div id="specSection" class="section hidden">
+        <h3>规格参数 <span id="specCount" class="count-badge"></span></h3>
+        <div id="specList" class="spec-list"></div>
+      </div>
+
+      <!-- Actions -->
+      <div class="actions">
+        <button id="btnSendToICross" class="btn-primary">
+          发送到 iCross
+        </button>
+        <button id="btnSendAndProcess" class="btn-secondary">
+          发送并生成 Listing
+        </button>
+      </div>
+
+      <!-- Status message -->
+      <div id="statusMessage" class="status-message hidden"></div>
+    </div>
+
+    <!-- Settings -->
+    <div id="viewSettings" class="view hidden">
+      <h3>设置</h3>
+      <div class="form-group">
+        <label for="serverUrl">服务器地址</label>
+        <input id="serverUrl" type="url" placeholder="http://localhost:8000" />
+      </div>
+      <div class="form-group">
+        <label for="apiKey">API Key (可选)</label>
+        <input id="apiKey" type="password" placeholder="留空则不鉴权" />
+      </div>
+      <div class="form-group">
+        <label>状态</label>
+        <span id="serverStatus" class="status-dot offline"></span>
+        <span id="serverStatusText">未检测</span>
+        <button id="btnTestConnection" class="btn-link">测试连接</button>
+      </div>
+      <div class="settings-actions">
+        <button id="btnSaveSettings" class="btn-primary">保存</button>
+        <button id="btnBack" class="btn-link">返回</button>
+      </div>
+    </div>
+
+    <!-- Loading overlay -->
+    <div id="loadingOverlay" class="loading-overlay hidden">
+      <div class="spinner"></div>
+      <p id="loadingText">处理中...</p>
+    </div>
+  </div>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

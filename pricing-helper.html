@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Ozon 定价助手 — iCross Agent</title>
+<style>
+  :root {
+    --primary: #1677ff;
+    --success: #52c41a;
+    --danger: #ff4d4f;
+    --warning: #faad14;
+    --text: #1f1f1f;
+    --text-secondary: #666;
+    --bg: #f5f5f5;
+    --card-bg: #fff;
+    --border: #e8e8e8;
+    --radius: 10px;
+    --shadow: 0 2px 8px rgba(0,0,0,.06);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 16px 12px 40px;
+    -webkit-font-smoothing: antialiased;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .header h1 { font-size: 22px; font-weight: 700; }
+  .header p { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
+
+  /* Mode switch */
+  .mode-tabs {
+    display: flex;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow);
+  }
+  .mode-tab {
+    flex: 1;
+    text-align: center;
+    padding: 12px 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .2s;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+  }
+  .mode-tab.active {
+    background: var(--primary);
+    color: #fff;
+  }
+
+  /* Card */
+  .card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  .card-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Form */
+  .form-row {
+    margin-bottom: 12px;
+  }
+  .form-row:last-child { margin-bottom: 0; }
+  .form-label {
+    display: block;
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+    font-weight: 500;
+  }
+  .form-label .hint {
+    font-weight: 400;
+    color: #999;
+    font-size: 11px;
+  }
+  input, select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color .2s;
+    background: #fff;
+    color: var(--text);
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  input:focus, select:focus { border-color: var(--primary); }
+  input[type="number"] { -moz-appearance: textfield; }
+  input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; }
+
+  .inline-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .inline-group-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+
+  /* Button */
+  .btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .2s;
+    background: var(--primary);
+    color: #fff;
+  }
+  .btn:active { opacity: .8; }
+  .btn-secondary {
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  /* Result */
+  .result-price {
+    text-align: center;
+    padding: 20px 0 16px;
+  }
+  .result-price .label {
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+  .result-price .value {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 4px 0;
+  }
+  .result-price .value.positive { color: var(--success); }
+  .result-price .value.negative { color: var(--danger); }
+  .result-price .sub {
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  .breakdown-table {
+    width: 100%;
+    font-size: 13px;
+    border-collapse: collapse;
+  }
+  .breakdown-table tr { border-bottom: 1px solid #f0f0f0; }
+  .breakdown-table tr:last-child { border-bottom: none; }
+  .breakdown-table th {
+    text-align: left;
+    padding: 8px 4px;
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 12px;
+  }
+  .breakdown-table td {
+    padding: 8px 4px;
+    text-align: right;
+    font-family: "SF Mono", "Menlo", monospace;
+    font-size: 14px;
+  }
+  .breakdown-table td:first-child { text-align: left; font-family: inherit; }
+  .breakdown-table .total td {
+    font-weight: 700;
+    border-top: 2px solid var(--border);
+    padding-top: 10px;
+  }
+  .breakdown-table .profit td {
+    font-weight: 700;
+    color: var(--success);
+  }
+  .breakdown-table .loss td {
+    font-weight: 700;
+    color: var(--danger);
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 500;
+  }
+  .tag-blue { background: #e6f4ff; color: var(--primary); }
+  .tag-green { background: #f6ffed; color: var(--success); }
+  .tag-orange { background: #fff7e6; color: var(--warning); }
+  .tag-red { background: #fff2f0; color: var(--danger); }
+
+  .margin-bar {
+    height: 8px;
+    border-radius: 4px;
+    background: #f0f0f0;
+    margin-top: 8px;
+    overflow: hidden;
+  }
+  .margin-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width .4s;
+  }
+
+  .summary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 12px;
+  }
+  .summary-item {
+    text-align: center;
+    padding: 12px 8px;
+    background: #fafafa;
+    border-radius: 8px;
+  }
+  .summary-item .num {
+    font-size: 20px;
+    font-weight: 700;
+    font-family: "SF Mono", monospace;
+  }
+  .summary-item .lbl {
+    font-size: 11px;
+    color: var(--text-secondary);
+    margin-top: 2px;
+  }
+
+  /* Switch (sales model) */
+  .switch-group {
+    display: flex;
+    background: #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .switch-option {
+    flex: 1;
+    text-align: center;
+    padding: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .2s;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+  }
+  .switch-option.active {
+    background: var(--primary);
+    color: #fff;
+    border-radius: 6px;
+  }
+
+  .hidden { display: none !important; }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #141414;
+      --card-bg: #1f1f1f;
+      --text: #e8e8e8;
+      --text-secondary: #999;
+      --border: #333;
+      --shadow: 0 2px 8px rgba(0,0,0,.3);
+    }
+    input, select {
+      background: #2a2a2a;
+      color: #e8e8e8;
+      border-color: #444;
+    }
+    .summary-item { background: #2a2a2a; }
+    .switch-group { background: #2a2a2a; }
+    .tag-blue { background: #111d2e; }
+    .tag-green { background: #162312; }
+    .tag-orange { background: #2b1d0d; }
+    .tag-red { background: #2a1215; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Ozon 定价助手</h1>
+  <p>成本计算 &amp; 利润分析</p>
+</div>
+
+<!-- Mode Tabs -->
+<div class="mode-tabs">
+  <button class="mode-tab active" data-mode="price" onclick="switchMode('price')">建议售价</button>
+  <button class="mode-tab" data-mode="profit" onclick="switchMode('profit')">利润计算</button>
+</div>
+
+<!-- ========== Mode 1: Price Calculator ========== -->
+<div id="mode-price" class="card">
+  <div class="card-title">输入参数</div>
+
+  <div class="form-row">
+    <label class="form-label">采购成本 <span class="hint">(CNY)</span></label>
+    <input type="number" id="p-price" value="30" step="0.01" min="0.01" oninput="clearResult()">
+  </div>
+
+  <div class="form-row">
+    <label class="form-label">重量 <span class="hint">(kg)</span></label>
+    <input type="number" id="p-weight" value="0.5" step="0.001" min="0" oninput="clearResult()">
+  </div>
+
+  <div class="form-row">
+    <label class="form-label">Ozon 类目</label>
+    <select id="p-category" onchange="clearResult()"></select>
+  </div>
+
+  <div class="form-row">
+    <label class="form-label">销售模式</label>
+    <div class="switch-group">
+      <button class="switch-option active" data-model="FBP" onclick="setSalesModel(this)">FBP</button>
+      <button class="switch-option" data-model="rFBS" onclick="setSalesModel(this)">rFBS</button>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <label class="form-label">目标毛利率 <span class="hint">(%)</span></label>
+    <input type="number" id="p-margin" value="20" step="0.5" min="0" max="100" oninput="clearResult()">
+  </div>
+
+  <button class="btn" onclick="calcPrice()">计算建议售价</button>
+</div>
+
+<!-- ========== Mode 2: Profit Calculator ========== -->
+<div id="mode-profit" class="card hidden">
+  <div class="card-title">输入参数</div>
+
+  <div class="form-row">
+    <label class="form-label">采购成本 <span class="hint">(CNY)</span></label>
+    <input type="number" id="f-purchase" value="30" step="0.01" min="0.01">
+  </div>
+
+  <div class="form-row">
+    <label class="form-label">重量 <span class="hint">(kg)</span></label>
+    <input type="number" id="f-weight" value="0.5" step="0.001" min="0">
+  </div>
+
+  <div class="form-row">
+    <label class="form-label">Ozon 类目</label>
+    <select id="f-category"></select>
+  </div>
+
+  <div class="form-row">
+    <label class="form-label">销售模式</label>
+    <div class="switch-group">
+      <button class="switch-option active" data-model="FBP" onclick="setSalesModel2(this)">FBP</button>
+      <button class="switch-option" data-model="rFBS" onclick="setSalesModel2(this)">rFBS</button>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <label class="form-label">Ozon 售价 <span class="hint">(RUB)</span></label>
+    <input type="number" id="f-selling" value="1500" step="1" min="1">
+  </div>
+
+  <button class="btn" onclick="calcProfit()">计算利润</button>
+</div>
+
+<!-- ========== Result ========== -->
+<div id="result-area" class="hidden">
+  <!-- Mode 1 Result -->
+  <div id="result-price" class="hidden">
+    <div class="card">
+      <div class="result-price">
+        <div class="label">建议售价 (RUB)</div>
+        <div class="value" id="r-recommended">0</div>
+        <div class="sub" id="r-tier"></div>
+      </div>
+      <div class="summary-grid">
+        <div class="summary-item">
+          <div class="num" id="r-margin-val">0%</div>
+          <div class="lbl">毛利率</div>
+        </div>
+        <div class="summary-item">
+          <div class="num" id="r-profit-val">0</div>
+          <div class="lbl">净利润 (RUB)</div>
+        </div>
+      </div>
+      <div class="margin-bar">
+        <div class="margin-bar-fill" id="r-margin-bar" style="width:0%"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">成本构成</div>
+      <table class="breakdown-table" id="r-breakdown"></table>
+    </div>
+  </div>
+
+  <!-- Mode 2 Result -->
+  <div id="result-profit" class="hidden">
+    <div class="card">
+      <div class="result-price">
+        <div class="label">净利润 (RUB)</div>
+        <div class="value" id="r-profit-amount">0</div>
+        <div class="sub" id="r-profit-status"></div>
+      </div>
+      <div class="summary-grid">
+        <div class="summary-item">
+          <div class="num" id="r-profit-margin-val">0%</div>
+          <div class="lbl">净利率</div>
+        </div>
+        <div class="summary-item">
+          <div class="num" id="r-f-profit-val">0</div>
+          <div class="lbl">利润 (RUB)</div>
+        </div>
+      </div>
+      <div class="margin-bar">
+        <div class="margin-bar-fill" id="r-profit-margin-bar" style="width:0%"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">成本构成</div>
+      <table class="breakdown-table" id="r-f-breakdown"></table>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════
+// 1. Commission rates (ported from ozon_costs.py)
+// ═══════════════════════════════════════════════
+
+const COMMISSION_RATES = {
+  "内衣和袜类产品":        { basic: { rFBS: 12.0, FBP: 11.0 }, mid: { rFBS: 14.0, FBP: 13.0 }, high: { rFBS: 22.5, FBP: 21.5 } },
+  "季节性内衣和袜类产品":    { basic: { rFBS: 12.0, FBP: 11.0 }, mid: { rFBS: 14.0, FBP: 13.0 }, high: { rFBS: 22.5, FBP: 21.5 } },
+  "美容设备":              { basic: { rFBS: 12.0, FBP: 11.0 }, mid: { rFBS: 14.0, FBP: 13.0 }, high: { rFBS: 16.0, FBP: 15.0 } },
+  "美容与健康":            { basic: { rFBS: 12.0, FBP: 11.0 }, mid: { rFBS: 14.0, FBP: 13.0 }, high: { rFBS: 18.0, FBP: 17.0 } },
+  "鞋类":                 { basic: { rFBS: 12.0, FBP: 11.0 }, mid: { rFBS: 12.0, FBP: 11.0 }, high: { rFBS: 12.0, FBP: 11.0 } },
+  "季节性鞋类":            { basic: { rFBS: 12.0, FBP: 11.0 }, mid: { rFBS: 12.0, FBP: 11.0 }, high: { rFBS: 12.0, FBP: 11.0 } },
+  "服装和配饰":            { basic: { rFBS: 12.0, FBP: 11.0 }, mid: { rFBS: 14.0, FBP: 13.0 }, high: { rFBS: 20.5, FBP: 19.5 } },
+  "季节性服装及配饰":       { basic: { rFBS: 12.0, FBP: 11.0 }, mid: { rFBS: 14.0, FBP: 13.0 }, high: { rFBS: 20.5, FBP: 19.5 } },
+  "外套":                 { basic: { rFBS: 10.0, FBP: 9.0 },  mid: { rFBS: 10.0, FBP: 9.0 },  high: { rFBS: 10.0, FBP: 9.0 } },
+  "专业美容设备":          { basic: { rFBS: 7.5, FBP: 6.5 },  mid: { rFBS: 7.5, FBP: 6.5 },  high: { rFBS: 7.5, FBP: 6.5 } },
+  "__default__":           { basic: { rFBS: 12.0, FBP: 11.0 }, mid: { rFBS: 14.0, FBP: 13.0 }, high: { rFBS: 18.0, FBP: 17.0 } },
+};
+
+// ═══════════════════════════════════════════════
+// 2. Logistics cost (standard tiers)
+// ═══════════════════════════════════════════════
+
+const LOGISTICS_TIERS = [
+  { wMin: 0, wMax: 500,     pMin: 1, pMax: 1500,     name: "Extra Small",   base: 2.95,  ppg: 0.045 },
+  { wMin: 500, wMax: 250000,pMin: 1, pMax: 1500,     name: "Budget",        base: 21.85, ppg: 0.025 },
+  { wMin: 0, wMax: 2000,    pMin: 1500, pMax: 7000,  name: "Small",         base: 15.2,  ppg: 0.034 },
+  { wMin: 2000, wMax: 250000,pMin: 1500, pMax: 7000, name: "Big",           base: 36,    ppg: 0.025 },
+  { wMin: 0, wMax: 5000,    pMin: 7000, pMax: 250000,name: "Premier Small", base: 22,    ppg: 0.035 },
+  { wMin: 5000, wMax: 250000,pMin: 7000, pMax: 2500000,name: "Premier Big", base: 62,   ppg: 0.028 },
+];
+
+// ═══════════════════════════════════════════════
+// 3. Constants
+// ═══════════════════════════════════════════════
+
+const EXCHANGE = { CNY_TO_RUB: 12.5, EUR_TO_RUB: 98.0 };
+const CUSTOMS = { thresholdEUR: 200, dutyRate: 0.15, fixedFeeRUB: 689 };
+const FIXED_COSTS = { packagingCNY: 2.0, otherCNY: 3.0, returnReservePct: 2.0 };
+
+// ═══════════════════════════════════════════════
+// 4. Core calculation functions
+// ═══════════════════════════════════════════════
+
+function getPriceTier(priceRUB) {
+  if (priceRUB <= 1500) return "basic";
+  if (priceRUB <= 5000) return "mid";
+  return "high";
+}
+
+function getCommissionRate(category, tier, model) {
+  const catKey = matchCategory(category);
+  const rates = COMMISSION_RATES[catKey] || COMMISSION_RATES["__default__"];
+  const tierRates = rates[tier] || rates["basic"];
+  return tierRates[model] || tierRates["FBP"];
+}
+
+function matchCategory(category) {
+  const cat = category.toLowerCase();
+  for (const key of Object.keys(COMMISSION_RATES)) {
+    if (key === "__default__") continue;
+    if (key.toLowerCase().includes(cat) || cat.includes(key.toLowerCase())) return key;
+  }
+  return "__default__";
+}
+
+function getLogisticsCost(weightG, sellingRUB) {
+  for (const t of LOGISTICS_TIERS) {
+    if (weightG >= t.wMin && weightG < t.wMax && sellingRUB >= t.pMin && sellingRUB < t.pMax) {
+      return { costCNY: +(t.base + t.ppg * weightG).toFixed(2), warehouse: t.name };
+    }
+  }
+  const last = LOGISTICS_TIERS[LOGISTICS_TIERS.length - 1];
+  return { costCNY: +(last.base + last.ppg * weightG).toFixed(2), warehouse: last.name + " (fallback)" };
+}
+
+function calcCustoms(priceRUB) {
+  const priceEUR = priceRUB / EXCHANGE.EUR_TO_RUB;
+  if (priceEUR > CUSTOMS.thresholdEUR) {
+    const excess = priceEUR - CUSTOMS.thresholdEUR;
+    return +(excess * CUSTOMS.dutyRate * EXCHANGE.EUR_TO_RUB + CUSTOMS.fixedFeeRUB).toFixed(2);
+  }
+  return 0;
+}
+
+// ═══════════════════════════════════════════════
+// 5. Public API: calcPrice (目标利润率 → 建议售价)
+// ═══════════════════════════════════════════════
+
+function calcPrice() {
+  const purchaseCNY = parseFloat(document.getElementById("p-price").value);
+  const weightKG = parseFloat(document.getElementById("p-weight").value);
+  const category = document.getElementById("p-category").value;
+  const targetMargin = parseFloat(document.getElementById("p-margin").value) / 100;
+  const model = getActiveModel("p");
+
+  if (!purchaseCNY || purchaseCNY <= 0) { alert("请输入采购成本"); return; }
+  if (!weightKG || weightKG <= 0) { alert("请输入重量"); return; }
+
+  const rub = EXCHANGE.CNY_TO_RUB;
+  const purchaseRUB = purchaseCNY * rub;
+  const weightG = weightKG * 1000;
+
+  // Fixed costs (CNY -> RUB)
+  const packagingRUB = FIXED_COSTS.packagingCNY * rub;
+  const otherRUB = FIXED_COSTS.otherCNY * rub;
+
+  // Iterate to converge on price
+  let logistics = getLogisticsCost(weightG, 2000);
+  let price = (purchaseRUB + logistics.costCNY * rub + packagingRUB + otherRUB) / (1 - targetMargin);
+
+  for (let i = 0; i < 10; i++) {
+    logistics = getLogisticsCost(weightG, price);
+    const tier = getPriceTier(price);
+    const commRate = getCommissionRate(category, tier, model);
+    const comm = price * commRate / 100;
+    const customs = calcCustoms(price);
+    const returnReserve = price * FIXED_COSTS.returnReservePct / 100;
+    const logisticsRUB = logistics.costCNY * rub;
+
+    const total = purchaseRUB + logisticsRUB + comm + customs + returnReserve + packagingRUB + otherRUB;
+    const profit = price - total;
+    const margin = profit / price;
+
+    if (Math.abs(margin - targetMargin) < 0.005) break;
+    price = total / (1 - targetMargin);
+  }
+
+  // Final calculation
+  logistics = getLogisticsCost(weightG, price);
+  const tier = getPriceTier(price);
+  const commRate = getCommissionRate(category, tier, model);
+  const comm = price * commRate / 100;
+  const customs = calcCustoms(price);
+  const returnReserve = price * FIXED_COSTS.returnReservePct / 100;
+  const logisticsRUB = logistics.costCNY * rub;
+  const total = purchaseRUB + logisticsRUB + comm + customs + returnReserve + packagingRUB + otherRUB;
+  const profit = price - total;
+  const marginPct = (profit / price * 100);
+
+  showPriceResult({
+    recommended: price,
+    tier,
+    commRate,
+    marginPct,
+    profit,
+    breakdown: [
+      { label: "采购成本", value: purchaseRUB, pct: purchaseRUB / price * 100 },
+      { label: "物流配送费", value: logisticsRUB, pct: logisticsRUB / price * 100 },
+      { label: "平台佣金 (" + commRate + "%)", value: comm, pct: comm / price * 100 },
+      { label: "关税", value: customs, pct: customs / price * 100 },
+      { label: "退货预备金 (2%)", value: returnReserve, pct: returnReserve / price * 100 },
+      { label: "包装费", value: packagingRUB, pct: packagingRUB / price * 100 },
+      { label: "其他费用", value: otherRUB, pct: otherRUB / price * 100 },
+    ],
+    total,
+    logisticsDetail: logistics,
+  });
+}
+
+// ═══════════════════════════════════════════════
+// 6. Public API: calcProfit (给定售价 → 利润)
+// ═══════════════════════════════════════════════
+
+function calcProfit() {
+  const purchaseCNY = parseFloat(document.getElementById("f-purchase").value);
+  const weightKG = parseFloat(document.getElementById("f-weight").value);
+  const category = document.getElementById("f-category").value;
+  const sellingRUB = parseFloat(document.getElementById("f-selling").value);
+  const model = getActiveModel("f");
+
+  if (!purchaseCNY || purchaseCNY <= 0) { alert("请输入采购成本"); return; }
+  if (!weightKG || weightKG <= 0) { alert("请输入重量"); return; }
+  if (!sellingRUB || sellingRUB <= 0) { alert("请输入 Ozon 售价"); return; }
+
+  const rub = EXCHANGE.CNY_TO_RUB;
+  const purchaseRUB = purchaseCNY * rub;
+  const weightG = weightKG * 1000;
+
+  const logistics = getLogisticsCost(weightG, sellingRUB);
+  const logisticsRUB = logistics.costCNY * rub;
+  const tier = getPriceTier(sellingRUB);
+  const commRate = getCommissionRate(category, tier, model);
+  const comm = sellingRUB * commRate / 100;
+  const customs = calcCustoms(sellingRUB);
+  const returnReserve = sellingRUB * FIXED_COSTS.returnReservePct / 100;
+  const packagingRUB = FIXED_COSTS.packagingCNY * rub;
+  const otherRUB = FIXED_COSTS.otherCNY * rub;
+
+  const total = purchaseRUB + logisticsRUB + comm + customs + returnReserve + packagingRUB + otherRUB;
+  const profit = sellingRUB - total;
+  const marginPct = (profit / sellingRUB * 100);
+
+  showProfitResult({
+    profit,
+    marginPct,
+    tier,
+    commRate,
+    sellingRUB,
+    total,
+    breakdown: [
+      { label: "采购成本", value: purchaseRUB, pct: purchaseRUB / sellingRUB * 100 },
+      { label: "物流配送费", value: logisticsRUB, pct: logisticsRUB / sellingRUB * 100 },
+      { label: "平台佣金 (" + commRate + "%)", value: comm, pct: comm / sellingRUB * 100 },
+      { label: "关税", value: customs, pct: customs / sellingRUB * 100 },
+      { label: "退货预备金 (2%)", value: returnReserve, pct: returnReserve / sellingRUB * 100 },
+      { label: "包装费", value: packagingRUB, pct: packagingRUB / sellingRUB * 100 },
+      { label: "其他费用", value: otherRUB, pct: otherRUB / sellingRUB * 100 },
+    ],
+    logisticsDetail: logistics,
+  });
+}
+
+// ═══════════════════════════════════════════════
+// 7. UI rendering
+// ═══════════════════════════════════════════════
+
+function showPriceResult(r) {
+  const price = r.recommended;
+  const isProfitable = r.marginPct > 0;
+
+  document.getElementById("r-recommended").textContent = price.toFixed(0) + " ₽";
+  document.getElementById("r-tier").innerHTML =
+    `档位: <span class="tag tag-blue">${r.tier}</span> &nbsp;物流: <span class="tag tag-green">${r.logisticsDetail.warehouse}</span>`;
+
+  const marginEl = document.getElementById("r-margin-val");
+  marginEl.textContent = r.marginPct.toFixed(1) + "%";
+  marginEl.style.color = isProfitable ? "var(--success)" : "var(--danger)";
+
+  document.getElementById("r-profit-val").textContent = r.profit.toFixed(0) + " ₽";
+  document.getElementById("r-profit-val").style.color = isProfitable ? "var(--success)" : "var(--danger)";
+
+  const bar = document.getElementById("r-margin-bar");
+  bar.style.width = Math.max(0, Math.min(100, r.marginPct)) + "%";
+  bar.style.background = isProfitable ? "var(--success)" : "var(--danger)";
+
+  // Breakdown table
+  const tbody = document.getElementById("r-breakdown");
+  let html = "";
+  for (const item of r.breakdown) {
+    html += `<tr><td>${item.label}</td><td>${item.value.toFixed(0)} ₽</td><td style="color:#999">${item.pct.toFixed(1)}%</td></tr>`;
+  }
+  html += `<tr class="total"><td>总成本</td><td>${r.total.toFixed(0)} ₽</td><td style="color:#999">100%</td></tr>`;
+  html += `<tr class="${isProfitable ? 'profit' : 'loss'}"><td>净利润</td><td>${r.profit.toFixed(0)} ₽</td><td>${r.marginPct.toFixed(1)}%</td></tr>`;
+  tbody.innerHTML = html;
+
+  // Show result
+  document.getElementById("result-area").classList.remove("hidden");
+  document.getElementById("result-price").classList.remove("hidden");
+  document.getElementById("result-profit").classList.add("hidden");
+
+  // Scroll to result
+  document.getElementById("result-area").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function showProfitResult(r) {
+  const isProfitable = r.profit > 0;
+
+  const amountEl = document.getElementById("r-profit-amount");
+  amountEl.textContent = (isProfitable ? "+" : "") + r.profit.toFixed(0) + " ₽";
+  amountEl.className = "value " + (isProfitable ? "positive" : "negative");
+
+  document.getElementById("r-profit-status").textContent =
+    `售价 ${r.sellingRUB.toFixed(0)} ₽ · ${r.tier} 档 · 物流: ${r.logisticsDetail.warehouse}`;
+
+  const marginEl = document.getElementById("r-profit-margin-val");
+  marginEl.textContent = r.marginPct.toFixed(1) + "%";
+  marginEl.style.color = isProfitable ? "var(--success)" : "var(--danger)";
+
+  document.getElementById("r-f-profit-val").textContent = r.profit.toFixed(0) + " ₽";
+  document.getElementById("r-f-profit-val").style.color = isProfitable ? "var(--success)" : "var(--danger)";
+
+  const bar = document.getElementById("r-profit-margin-bar");
+  bar.style.width = Math.max(0, Math.min(100, r.marginPct)) + "%";
+  bar.style.background = isProfitable ? "var(--success)" : "var(--danger)";
+
+  // Breakdown table
+  const tbody = document.getElementById("r-f-breakdown");
+  let html = "";
+  for (const item of r.breakdown) {
+    html += `<tr><td>${item.label}</td><td>${item.value.toFixed(0)} ₽</td><td style="color:#999">${item.pct.toFixed(1)}%</td></tr>`;
+  }
+  html += `<tr class="total"><td>总成本</td><td>${r.total.toFixed(0)} ₽</td><td style="color:#999">100%</td></tr>`;
+  html += `<tr class="${isProfitable ? 'profit' : 'loss'}"><td>净利润</td><td>${r.profit.toFixed(0)} ₽</td><td>${r.marginPct.toFixed(1)}%</td></tr>`;
+  tbody.innerHTML = html;
+
+  // Show result
+  document.getElementById("result-area").classList.remove("hidden");
+  document.getElementById("result-price").classList.add("hidden");
+  document.getElementById("result-profit").classList.remove("hidden");
+
+  document.getElementById("result-area").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+// ═══════════════════════════════════════════════
+// 8. UI helpers
+// ═══════════════════════════════════════════════
+
+function switchMode(mode) {
+  document.querySelectorAll(".mode-tab").forEach(t => t.classList.remove("active"));
+  document.querySelector(`.mode-tab[data-mode="${mode}"]`).classList.add("active");
+  document.getElementById("mode-price").classList.toggle("hidden", mode !== "price");
+  document.getElementById("mode-profit").classList.toggle("hidden", mode !== "profit");
+  // Hide old results
+  document.getElementById("result-area").classList.add("hidden");
+}
+
+function setSalesModel(el) {
+  document.querySelectorAll("#mode-price .switch-option").forEach(b => b.classList.remove("active"));
+  el.classList.add("active");
+  clearResult();
+}
+
+function setSalesModel2(el) {
+  document.querySelectorAll("#mode-profit .switch-option").forEach(b => b.classList.remove("active"));
+  el.classList.add("active");
+}
+
+function getActiveModel(prefix) {
+  const active = document.querySelector(`#mode-${prefix} .switch-option.active`);
+  return active ? active.dataset.model : "FBP";
+}
+
+function clearResult() {
+  document.getElementById("result-area").classList.add("hidden");
+  document.getElementById("result-price").classList.add("hidden");
+  document.getElementById("result-profit").classList.add("hidden");
+}
+
+// ═══════════════════════════════════════════════
+// 9. Populate category dropdown
+// ═══════════════════════════════════════════════
+
+function populateCategories() {
+  const cats = Object.keys(COMMISSION_RATES).filter(k => k !== "__default__");
+  const selects = ["p-category", "f-category"];
+  for (const id of selects) {
+    const sel = document.getElementById(id);
+    sel.innerHTML = '<option value="">自动匹配（默认佣金）</option>'
+      + cats.map(c => `<option value="${c}">${c}</option>`).join("");
+  }
+}
+populateCategories();
+
+// ═══════════════════════════════════════════════
+// 10. Keyboard shortcut: Enter to calculate
+// ═══════════════════════════════════════════════
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    const priceMode = !document.getElementById("mode-price").classList.contains("hidden");
+    if (priceMode) calcPrice(); else calcProfit();
+  }
+});
+</script>
+</body>
+</html>
