@@ -686,6 +686,47 @@ async def chat(ws: WebSocket, session_id: str = "default", shop_id: str = ""):
     current task finishes.
     """
     await ws.accept()
+
+    # ── Demo mode: return canned responses ──
+    from icross.core.config import is_demo_mode
+    if is_demo_mode():
+        await _send_json_safe(
+            lambda s: ws.send_text(s),
+            {"type": "session_state", "has_active_task": False, "agent_status": None},
+        )
+        # Auto-send demo greeting
+        await _send_json_safe(
+            lambda s: ws.send_text(s),
+            {"type": "ai", "content": "🎯 欢迎使用 iCross Agent 演示模式！\n\n当前为**演示模式**，数据为模拟数据。\n\n要体验完整功能，请在 `.env` 文件中配置：\n- **DEEPSEEK_API_KEY**（AI 对话）\n- **OZON_CLIENT_ID** + **OZON_API_KEY**（店铺运营）\n\n然后设置 `ICROSS_DEMO_MODE=false` 重新启动。\n\n---\n\n你可以点击左侧菜单浏览：\n- **运营工作台** — 查看看板、选品、商品管理等界面\n- **配置管理** — 查看 LLM 提供商、店铺等配置页面"},
+        )
+        await _send_json_safe(
+            lambda s: ws.send_text(s),
+            {"type": "message_end"},
+        )
+        # Keep connection alive until client disconnects
+        try:
+            while True:
+                raw = await ws.receive_text()
+                payload = json.loads(raw)
+                action = payload.get("action", "")
+                if action == "stop":
+                    break
+                # Echo user message, then reply with demo notice
+                await _send_json_safe(
+                    lambda s: ws.send_text(s),
+                    {"type": "human", "content": payload.get("content", "")},
+                )
+                await _send_json_safe(
+                    lambda s: ws.send_text(s),
+                    {"type": "ai", "content": "当前为**演示模式**，AI Agent 功能不可用。请配置 API Key 后重启使用。"},
+                )
+                await _send_json_safe(
+                    lambda s: ws.send_text(s),
+                    {"type": "message_end"},
+                )
+        except WebSocketDisconnect:
+            pass
+        return
     await session_storage.ensure_session(session_id)
     sd = _sdata(session_id)
     if shop_id:

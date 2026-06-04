@@ -2,6 +2,10 @@
 
 AI-powered e-commerce operations system for **[Ozon](https://www.ozon.ru)** (Russian marketplace). Automates product sourcing, listing generation, pricing, advertising, and finance management through a conversational AI Agent interface.
 
+> **🌐 中文用户？** 查看 [README_CN.md](README_CN.md) — 中文安装指南和使用说明。
+>
+> **🎮 Demo mode** — Set `ICROSS_DEMO_MODE=true` in `.env` to explore the UI without API keys.
+
 ```mermaid
 flowchart LR
     User[User] --> FE[Web Frontend :3000]
@@ -26,6 +30,54 @@ flowchart LR
 
 ### One-click Start
 
+Choose your platform:
+
+<details>
+<summary><b>🐳 Docker (easiest — no Python/Node.js needed)</b></summary>
+
+```bash
+git clone https://github.com/Jason-prd/icross-agent.git
+cd icross-agent
+
+# 1. Edit .env with your API keys
+cp .env.example .env
+# then edit .env
+
+# 2. Start everything with one command
+docker compose up -d
+```
+
+| Service | URL | Description |
+|---------|-----|-------------|
+| Frontend | http://localhost:3000 | React operations console |
+| Backend API | http://localhost:8000 | FastAPI + WebSocket |
+| API Docs | http://localhost:8000/docs | Swagger UI |
+
+</details>
+
+<details>
+<summary><b>🪟 Windows (batch script)</b></summary>
+
+```batch
+git clone https://github.com/Jason-prd/icross-agent.git
+cd icross-agent
+
+:: Edit .env with your API keys, then double-click:
+start.bat
+```
+
+Or from Command Prompt:
+```batch
+start.bat
+```
+
+The script auto-detects Python 3.11+ and Node.js 18+, creates a virtual environment, installs all dependencies, and starts both servers.
+
+</details>
+
+<details>
+<summary><b>🐧 macOS / Linux (bash script)</b></summary>
+
 ```bash
 git clone https://github.com/Jason-prd/icross-agent.git
 cd icross-agent
@@ -34,11 +86,13 @@ cd icross-agent
 ./start.sh
 ```
 
-The script automatically:
-1. Creates `.env` from `.env.example` if missing — edit this file first
-2. Installs all Python dependencies (`uv sync`)
-3. Installs frontend dependencies (`npm install`)
-4. Starts both servers
+</details>
+
+All scripts automatically:
+1. Create `.env` from `.env.example` if missing — edit this file first
+2. Install all Python dependencies (`uv sync` or pip fallback)
+3. Install frontend dependencies (`npm install`)
+4. Start both servers, kill old processes on same ports
 
 | Service | URL | Description |
 |---------|-----|-------------|

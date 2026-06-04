@@ -1,0 +1,46 @@
+# =============================================================================
+# iCross Agent — Backend Docker Image
+# =============================================================================
+FROM python:3.11-slim AS base
+
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    git curl && \
+    rm -rf /var/lib/apt/lists/*
+
+# Install uv
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /usr/local/bin/
+
+# ── Install Python dependencies ──
+# Copy only what's needed for dependency resolution first (Docker layer caching)
+COPY pyproject.toml ./
+
+# Copy bundled vendor packages
+COPY vendors/langchain/libs/core vendors/langchain/libs/core/
+COPY vendors/langchain/libs/partners/anthropic vendors/langchain/libs/partners/anthropic/
+COPY vendors/langchain/libs/partners/openai vendors/langchain/libs/partners/openai/
+COPY vendors/langchain-community/libs/community vendors/langchain-community/libs/community/
+COPY vendors/langgraph/libs/langgraph vendors/langgraph/libs/langgraph/
+COPY vendors/langgraph/libs/checkpoint vendors/langgraph/libs/checkpoint/
+COPY vendors/langgraph/libs/checkpoint-postgres vendors/langgraph/libs/checkpoint-postgres/
+COPY vendors/langgraph/libs/prebuilt vendors/langgraph/libs/prebuilt/
+COPY vendors/rembg vendors/rembg/
+COPY vendors/OzonAPI-main/src/ozonapi vendors/OzonAPI-main/src/ozonapi/
+
+RUN uv sync --no-dev --no-install-project 2>&1 || uv sync --no-dev
+
+# ── Copy source code ──
+COPY src/ src/
+COPY data/ data/
+
+# Create runtime directories
+RUN mkdir -p workspace uploads
+
+EXPOSE 8000
+
+ENV PYTHONPATH=/app/src
+ENV PYTHONUNBUFFERED=1
+
+CMD ["uv", "run", "uvicorn", "icross.api.main:app", "--host", "0.0.0.0", "--port", "8000"]

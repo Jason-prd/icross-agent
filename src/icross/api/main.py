@@ -115,6 +115,8 @@ async def _startup():
     import os
     await seed_default_templates()
 
+    from icross.core.config import is_demo_mode
+
     # Seed default shop from .env if none exist
     from icross.core.storage.ozon_data import ShopStorage
     shop_store = ShopStorage()
@@ -122,7 +124,17 @@ async def _startup():
     if not existing:
         env_client_id = os.getenv("OZON_CLIENT_ID", "").strip()
         env_api_key = os.getenv("OZON_API_KEY", "").strip()
-        if env_client_id and env_api_key:
+        if is_demo_mode():
+            # In demo mode, seed a mock shop
+            await shop_store.add_shop(
+                shop_id="demo-shop",
+                name="演示店铺 (Demo)",
+                client_id="demo-client-id",
+                api_key="demo-api-key",
+            )
+            import logging
+            logging.getLogger(__name__).info("Seeded demo shop for ICROSS_DEMO_MODE")
+        elif env_client_id and env_api_key:
             await shop_store.add_shop(
                 shop_id="shop-1",
                 name="默认店铺",
@@ -196,7 +208,24 @@ app.include_router(extension.router, prefix="/api")
 @app.get("/health")
 def health():
     """Health check endpoint."""
-    return {"status": "ok", "service": "icross-agent", "storage": "json"}
+    from icross.core.config import is_demo_mode
+    return {
+        "status": "ok",
+        "service": "icross-agent",
+        "storage": "json",
+        "demo_mode": is_demo_mode(),
+    }
+
+
+@app.get("/api/system/status")
+async def system_status():
+    """Return system setup status for onboarding/first-run detection.
+
+    Frontend uses this to determine if onboarding wizard should be shown
+    and whether demo mode is active.
+    """
+    from icross.core.config import is_demo_mode, get_setup_status
+    return get_setup_status()
 
 
 @app.get("/")

@@ -32,9 +32,67 @@ async def invalidate_dashboard_cache():
     return {"success": True, "invalidated": count}
 
 
+def _mock_dashboard_summary() -> dict:
+    """Return mock dashboard data for demo mode."""
+    return {
+        "rating": {"rating": 4.8, "rating_count": 326, "positive_rate": 98.5},
+        "transactions": {"total": {"revenue": 458000, "commission": 45800, "payout": 412200}},
+        "pending_returns": 3,
+        "unread_chats": 5,
+        "low_stock_count": 7,
+        "active_actions": 2,
+        "today_orders": 24,
+        "today_gmv": 185000,
+        "today_visitors": 1240,
+        "conversion_rate": 1.9,
+        "total_products": 156,
+        "pending_drafts": 4,
+        "shop_name": "演示店铺 (Demo)",
+        "_demo": True,
+    }
+
+
+def _mock_dashboard_metrics() -> dict:
+    """Return mock chart data for demo mode."""
+    from datetime import datetime, timedelta
+    today = datetime.now()
+    daily_sales = []
+    daily_orders = []
+    for i in range(30):
+        d = (today - timedelta(days=29 - i)).strftime("%Y-%m-%d")
+        import random
+        daily_sales.append({
+            "date": d,
+            "sales": round(random.uniform(3000, 12000), 2),
+            "commission": round(random.uniform(300, 1200), 2),
+            "payout": round(random.uniform(2700, 10800), 2),
+        })
+        daily_orders.append({
+            "date": d,
+            "orders": random.randint(5, 35),
+        })
+    return {
+        "daily_sales": daily_sales,
+        "daily_orders": daily_orders,
+        "top_products": [
+            {"name": "蓝牙耳机 Pro", "sales": 85000, "units": 120},
+            {"name": "运动手表 S3", "sales": 72000, "units": 85},
+            {"name": "智能手机壳", "sales": 45000, "units": 320},
+            {"name": "无线充电器", "sales": 38000, "units": 210},
+            {"name": "便携音箱 Mini", "sales": 29000, "units": 95},
+        ],
+        "period": {"date_from": (today - timedelta(days=30)).strftime("%Y-%m-%d"), "date_to": today.strftime("%Y-%m-%d")},
+        "_demo": True,
+    }
+
+
 @router.get("/summary")
 async def dashboard_summary(shop_id: str = Query(default=...)):
     """Aggregate dashboard summary data for a shop."""
+    from icross.core.config import is_demo_mode
+    if is_demo_mode():
+        return _mock_dashboard_summary()
+
     # ── 0. Check if any shops exist ──
     shop_store = ShopStorage()
     all_shops = await shop_store.list_shops()
@@ -203,6 +261,10 @@ async def dashboard_metrics(shop_id: str = Query(default=...)):
 
     Returns time-series data for ECharts visualization.
     """
+    from icross.core.config import is_demo_mode
+    if is_demo_mode():
+        return _mock_dashboard_metrics()
+
     # ── Check if any shops exist ──
     from icross.core.storage.ozon_data import ShopStorage as _ShopStorage
     _shop_store = _ShopStorage()

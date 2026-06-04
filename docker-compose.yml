@@ -1,0 +1,60 @@
+# =============================================================================
+# iCross Agent — Docker Compose
+# =============================================================================
+# Usage:
+#   docker compose up -d          # Start both services
+#   docker compose down           # Stop all services
+#   docker compose logs -f        # View logs
+#
+# Access:
+#   Frontend: http://localhost:3000
+#   Backend:  http://localhost:8000
+#   API Docs: http://localhost:8000/docs
+#
+# First time: copy .env.example to .env and fill in API keys before starting.
+# =============================================================================
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: icross-backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      - PYTHONPATH=/app/src
+      - PYTHONUNBUFFERED=1
+    volumes:
+      # Mount runtime data directories for persistence
+      - icross_data:/app/data
+      - icross_workspace:/app/workspace
+      - icross_uploads:/app/uploads
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-sf", "http://localhost:8000/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+
+  frontend:
+    build:
+      context: ./frontend-react
+      dockerfile: ../Dockerfile.frontend
+    container_name: icross-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - VITE_PROXY_TARGET=http://backend:8000
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  icross_data:
+  icross_workspace:
+  icross_uploads:

@@ -1,0 +1,49 @@
+# Git
+.git
+.gitignore
+.gitattributes
+.gitmodules
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+.venv
+.venv_*
+*.egg-info
+.pytest_cache
+.mypy_cache
+.ruff_cache
+
+# Node
+node_modules
+frontend-react/node_modules
+frontend-react/dist
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Runtime data (auto-created)
+data/*.json
+
+# Unnecessary vendors (not used by Python backend)
+vendors/dify/
+vendors/ant-design/
+vendors/next.js/
+vendors/DrissionPage/
+vendors/stable-diffusion-webui/
+vendors/fastapi/
+vendors/celery/
+vendors/hermes-agent-main/
+
+# Docs and tests
+docs/
+tests/
+*.md
